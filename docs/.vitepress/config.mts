@@ -83,9 +83,13 @@ export default {
 			`
   function syncTheme() {
       const isDark = document.documentElement.classList.contains('dark');
-      const isShoelaceDark = document.documentElement.classList.contains('sl-theme-dark');
-      if (isDark && !isShoelaceDark) document.documentElement.classList = "dark sl-theme-dark";
-      if (!isDark && isShoelaceDark) document.documentElement.classList = "";
+      const isShoelaceDark = document.body.classList.contains('sl-theme-dark');
+      if (isDark && !isShoelaceDark) {
+	      document.body.classList = "sl-theme-dark";
+	    }
+      if (!isDark && isShoelaceDark) {
+      	document.body.classList = "";
+      }
   }
   const attrObserver = new MutationObserver((mutations) => {
     mutations.forEach(mu => {
