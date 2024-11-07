@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["NotificationsRemoteSignal","Signal"],"fn":["init","post_commit","recv_remote_signal"],"mod":["encrypted_message","linked_devices","notification","notifications_settings","synchronize","utils"]};

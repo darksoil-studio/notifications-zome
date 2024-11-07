@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["GetNotificationContentsInput","NotificationContents","NotificationType"],"trait":["NotificationsZomeTrait"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["NotificationStatus","NotificationsEncryptedMessage"],"struct":["Notification","NotificationsStatusChanges","SendNotificationInput"]};

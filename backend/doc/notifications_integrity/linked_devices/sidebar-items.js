@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["linked_devices_integrity_zome_name"]};

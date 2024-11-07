@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["example","example_integrity","hc_zome_trait_notifications","notifications","notifications_integrity","notifications_types"];
