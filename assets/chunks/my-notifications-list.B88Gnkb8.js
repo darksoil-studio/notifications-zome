@@ -1,4 +1,4 @@
-import{s as Tt,a as c,n as At,t as Vt}from"./property.Djn7gyev.js";import{i as y,h as pt,R as ft,k as d,D as Bt,w as U,f as L,n as Mt,o as Nt,p as It}from"./notifications-client.DtzNkM3H.js";import{S as jt}from"./signal-watcher.KbiE_xyR.js";import{n as Dt}from"./context.D4deGXDS.js";/**
+import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y,h as pt,R as ft,k as d,D as Bt,w as U,d as L,g as Mt,j as Nt,l as It}from"./notifications-client.Csl3ceiM.js";import{S as jt}from"./signal-watcher.BRzsZXdJ.js";import{n as Dt}from"./context.DwITtt2r.js";function Ft(t,e){{const r=t.find(i=>i&&i.status==="error");if(r)return r}{const r=t.find(i=>i&&i.status==="pending");if(r)return r}return{status:"completed",value:t.filter(r=>r.status==="completed").map(r=>r.value)}}/**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -6,7 +6,7 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.Djn7gyev.js";import{i as y
  * @license
  * Copyright 2022 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function vt({context:t,subscribe:e}){return(o,r)=>{typeof r=="object"?r.addInitializer(function(){new nt(this,{context:t,callback:i=>{o.set.call(this,i)},subscribe:e})}):o.constructor.addInitializer(i=>{new nt(i,{context:t,callback:s=>{i[r]=s},subscribe:e})})}}function Ft(t,e){{const r=t.find(i=>i&&i.status==="error");if(r)return r}{const r=t.find(i=>i&&i.status==="pending");if(r)return r}return{status:"completed",value:t.filter(r=>r.status==="completed").map(r=>r.value)}}/**
+ */function vt({context:t,subscribe:e}){return(o,r)=>{typeof r=="object"?r.addInitializer(function(){new nt(this,{context:t,callback:i=>{o.set.call(this,i)},subscribe:e})}):o.constructor.addInitializer(i=>{new nt(i,{context:t,callback:s=>{i[r]=s},subscribe:e})})}}/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
