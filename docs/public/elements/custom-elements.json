@@ -4,6 +4,62 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "locales/locales.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "sourceLocale",
+          "default": "`en`",
+          "description": "The locale code that templates in this source code are written in."
+        },
+        {
+          "kind": "variable",
+          "name": "targetLocales",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  ,\n]",
+          "description": "The other locale codes that this application is localized into. Sorted\nlexicographically."
+        },
+        {
+          "kind": "variable",
+          "name": "allLocales",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  `en`,\n]",
+          "description": "All valid project locale codes. Sorted lexicographically."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "sourceLocale",
+          "declaration": {
+            "name": "sourceLocale",
+            "module": "locales/locales.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "targetLocales",
+          "declaration": {
+            "name": "targetLocales",
+            "module": "locales/locales.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "allLocales",
+          "declaration": {
+            "name": "allLocales",
+            "module": "locales/locales.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/context.ts",
       "declarations": [
         {
@@ -151,7 +207,7 @@
           ],
           "superclass": {
             "name": "ZomeMock",
-            "package": "@holochain-open-dev/utils"
+            "package": "@tnesh-stack/utils"
           }
         }
       ],
@@ -185,9 +241,9 @@
               },
               "parameters": [
                 {
-                  "name": "recipientProfileHash",
+                  "name": "recipient",
                   "type": {
-                    "text": "ActionHash"
+                    "text": "AgentPubKey"
                   }
                 },
                 {
@@ -290,7 +346,7 @@
           ],
           "superclass": {
             "name": "ZomeClient",
-            "package": "@holochain-open-dev/utils"
+            "package": "@tnesh-stack/utils"
           }
         }
       ],
@@ -386,62 +442,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "locales/locales.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "sourceLocale",
-          "default": "`en`",
-          "description": "The locale code that templates in this source code are written in."
-        },
-        {
-          "kind": "variable",
-          "name": "targetLocales",
-          "type": {
-            "text": "array"
-          },
-          "default": "[\n  ,\n]",
-          "description": "The other locale codes that this application is localized into. Sorted\nlexicographically."
-        },
-        {
-          "kind": "variable",
-          "name": "allLocales",
-          "type": {
-            "text": "array"
-          },
-          "default": "[\n  `en`,\n]",
-          "description": "All valid project locale codes. Sorted lexicographically."
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "sourceLocale",
-          "declaration": {
-            "name": "sourceLocale",
-            "module": "locales/locales.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "targetLocales",
-          "declaration": {
-            "name": "targetLocales",
-            "module": "locales/locales.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "allLocales",
-          "declaration": {
-            "name": "allLocales",
-            "module": "locales/locales.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/elements/my-notifications-icon-button.ts",
       "declarations": [
         {
@@ -457,7 +457,7 @@
           "mixins": [
             {
               "name": "SignalWatcher",
-              "package": "@holochain-open-dev/signals"
+              "package": "@tnesh-stack/signals"
             }
           ],
           "superclass": {
@@ -532,7 +532,7 @@
           "mixins": [
             {
               "name": "SignalWatcher",
-              "package": "@holochain-open-dev/signals"
+              "package": "@tnesh-stack/signals"
             }
           ],
           "superclass": {
