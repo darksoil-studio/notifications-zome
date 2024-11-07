@@ -18,7 +18,7 @@ export default {
 			include: ['mermaid'],
 		},
 	},
-	base: '/notifications',
+	base: '/notifications-zome',
 	title: '@darksoil-studio/notifications-zome',
 	description: 'Notifications zome for holochain apps',
 	themeConfig: {
