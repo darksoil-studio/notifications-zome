@@ -1,0 +1,18 @@
+{
+  "name": "tests",
+  "private": true,
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@msgpack/msgpack": "^2.7.0",
+    "@holochain/client": "^0.17.1",
+    "@holochain/tryorama": "^v0.16.0",
+    "@tnesh-stack/signals": "^0.300.0",
+    "@tnesh-stack/utils": "^0.300.0",
+    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices#055871e8a663402b169691b5b40cdc90751c0628&path:ui",
+    "typescript": "^5.4.5",
+    "vitest": "^1.4.0"
+  },
+  "type": "module"
+}

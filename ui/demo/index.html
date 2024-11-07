@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+		/>
+		<meta name="Description" content="Put your description here." />
+		<base href="/" />
+
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: sans-serif;
+				background-color: #ededed;
+				height: 100%;
+				width: 100%;
+			}
+
+			body {
+				display: flex;
+			}
+		</style>
+		<title>Notifications</title>
+	</head>
+
+	<body>
+		<demo-app></demo-app>
+
+		<script type="module">
+			import {
+				LinkedDevicesClient,
+				LinkedDevicesStore,
+				linkedDevicesStoreContext,
+			} from '@darksoil-studio/linked-devices-zome';
+			import '@darksoil-studio/linked-devices-zome/dist/elements/link-devices-recipient.js';
+			import {
+				ProfilesClient,
+				ProfilesStore,
+				profilesStoreContext,
+			} from '@darksoil-studio/profiles-zome';
+			import '@darksoil-studio/profiles-zome/dist/elements/profile-prompt.js';
+			import { AppWebsocket, decodeHashFromBase64 } from '@holochain/client';
+			import { ContextProvider } from '@lit/context';
+			import { mdiBell } from '@mdi/js';
+			import { decode, encode } from '@msgpack/msgpack';
+			import '@shoelace-style/shoelace/dist/components/button/button.js';
+			import '@shoelace-style/shoelace/dist/components/spinner/spinner.js';
+			import '@shoelace-style/shoelace/dist/themes/light.css';
+			import { sharedStyles, wrapPathInSvg } from '@tnesh-stack/elements';
+			import '@tnesh-stack/elements/dist/elements/display-error.js';
+			import { Signal, SignalWatcher, joinAsync } from '@tnesh-stack/signals';
+			import { LitElement, css, html } from 'lit';
+
+			import '../src/elements/my-notifications-icon-button.ts';
+			import '../src/elements/my-notifications-list.ts';
+			import '../src/elements/notifications-context.ts';
+			import { NotificationsClient, NotificationsStore } from '../src/index.ts';
+
+			export class DemoApp extends SignalWatcher(LitElement) {
+				constructor() {
+					super();
+					this._loading = true;
+					this._view = { view: 'main' };
+				}
+
+				async firstUpdated() {
+					this._client = await AppWebsocket.connect();
+
+					await this.initStores(this._client);
+
+					this._loading = false;
+					this.requestUpdate();
+				}
+
+				async initStores(appClient) {
+					this.profilesStore = new ProfilesStore(
+						new ProfilesClient(appClient, 'notifications_test'),
+					);
+					new ContextProvider(this, profilesStoreContext, this.profilesStore);
+
+					const linkedDevicesStore = new LinkedDevicesStore(
+						new LinkedDevicesClient(appClient, 'notifications_test'),
+					);
+					new ContextProvider(
+						this,
+						linkedDevicesStoreContext,
+						linkedDevicesStore,
+					);
+
+					this._notificationsStore = new NotificationsStore(
+						new NotificationsClient(appClient, 'notifications_test'),
+						//	{
+						//		types: {
+						//			type1: {
+						//				name: 'Hii',
+						//				description: 'something',
+						//				title(group) {
+						//					return new Signal.State({
+						//						status: 'completed',
+						//						value: group,
+						//					});
+						//				},
+						//				onClick: group => console.log('clicked', group),
+						//				contents: n => {
+						//					const i = decode(n.entry.content);
+
+						//					return new Signal.State({
+						//						status: 'completed',
+						//						value: {
+						//							iconSrc: wrapPathInSvg(mdiBell),
+						//							body: i.body,
+						//						},
+						//					});
+						//				},
+						//			},
+						//		},
+						//	},
+					);
+					const interval = setInterval(async () => {
+						const allProfilesLinks =
+							await this.profilesStore.client.getAllProfiles();
+						const otherAgentLink = allProfilesLinks.find(
+							link =>
+								link.author.toString() !==
+								this._notificationsStore.client.client.myPubKey.toString(),
+						);
+						if (otherAgentLink) {
+							console.log(otherAgentLink);
+							this.peer = otherAgentLink.author;
+							this.requestUpdate();
+							clearInterval(interval);
+						}
+					}, 1000);
+				}
+
+				renderContent() {
+					if (this.linkAgent)
+						return html`<link-devices-recipient
+							@device-linked=${() => {
+								this.linkAgent = false;
+								this.requestUpdate();
+							}}
+						></link-devices-recipient>`;
+
+					const result = joinAsync([
+						this._notificationsStore.unreadNotifications.get(),
+						this._notificationsStore.readNotifications.get(),
+					]);
+					const undismissedNotifications = [
+						...Array.from(
+							result.value
+								? Object.keys(result.value[0]).map(decodeHashFromBase64)
+								: [],
+						),
+						...Array.from(
+							result.value
+								? Object.keys(result.value[1]).map(decodeHashFromBase64)
+								: [],
+						),
+					];
+					return html`
+						<notifications-context .store=${this._notificationsStore}>
+							<my-notifications-icon-button></my-notifications-icon-button>
+							<my-notifications-list></my-notifications-list>
+							<div>
+								<sl-button
+									@click=${e => {
+										this._notificationsStore.client.sendNotification(
+											this.peer,
+											'example',
+											'type1',
+											this.shadowRoot.getElementById('group').value,
+											{ body: "what's up?" },
+										);
+									}}
+									>Create notification</sl-button
+								>
+								<sl-button
+									@click=${() =>
+										this._notificationsStore.client.dismissNotifications(
+											undismissedNotifications,
+										)}
+									>Clear all notifications</sl-button
+								>
+								<sl-button
+									@click=${() => {
+										this.linkAgent = true;
+										this.requestUpdate();
+									}}
+									>Link device</sl-button
+								>
+							</div>
+							<span>Group</span>
+							<input id="group" type="text" />
+						</notifications-context>
+					`;
+				}
+
+				render() {
+					if (this._loading)
+						return html`<div
+							class="row"
+							style="flex: 1; height: 100%; align-items: center; justify-content: center;"
+						>
+							<sl-spinner></sl-spinner>
+						</div>`;
+
+					return html`
+						<div class="fill row" style="width: 100vw; height: 100%;">
+							<profile-prompt style="flex: 1;">
+								${this.renderContent()}
+							</profile-prompt>
+						</div>
+					`;
+				}
+
+				static styles = [
+					css`
+						:host {
+							display: flex;
+							flex: 1;
+						}
+					`,
+					sharedStyles,
+				];
+			}
+
+			customElements.define('demo-app', DemoApp);
+		</script>
+	</body>
+</html>

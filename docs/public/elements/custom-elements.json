@@ -1,0 +1,620 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/context.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "notificationsStoreContext"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "notificationsStoreContext",
+          "declaration": {
+            "name": "notificationsStoreContext",
+            "module": "src/context.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./notifications-store.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./notifications-client.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./context.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./types.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/mocks.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NotificationsZomeMock",
+          "members": [
+            {
+              "kind": "field",
+              "name": "notifications",
+              "default": "new HoloHashMap<EntryHash, Notification>()",
+              "description": "Notification"
+            },
+            {
+              "kind": "field",
+              "name": "notificationsStatusChanges",
+              "default": "new HoloHashMap<\n\t\tEntryHash,\n\t\tNotificationsStatusChanges\n\t>()"
+            },
+            {
+              "kind": "method",
+              "name": "send_notification",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "notification",
+                  "type": {
+                    "text": "Notification"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "change_notifications_status",
+              "parameters": [
+                {
+                  "name": "status_changes",
+                  "type": {
+                    "text": "Record<EntryHashB64, NotificationStatus>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "query_notifications_and_status",
+              "return": {
+                "type": {
+                  "text": "Promise<\n\t\tRecord<\n\t\t\tEntryHashB64,\n\t\t\t{ notification: Notification; status: NotificationStatus }\n\t\t>\n\t>"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "query_notifications_with_status",
+              "parameters": [
+                {
+                  "name": "notificationStatus",
+                  "type": {
+                    "text": "NotificationStatus"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "get_notification_contents",
+              "return": {
+                "type": {
+                  "text": "Promise<NotificationContents>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "notification",
+                  "type": {
+                    "text": "Notification"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "ZomeMock",
+            "package": "@holochain-open-dev/utils"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NotificationsZomeMock",
+          "declaration": {
+            "name": "NotificationsZomeMock",
+            "module": "src/mocks.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/notifications-client.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NotificationsClient",
+          "members": [
+            {
+              "kind": "method",
+              "name": "sendNotification",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "recipientProfileHash",
+                  "type": {
+                    "text": "ActionHash"
+                  }
+                },
+                {
+                  "name": "zomeName",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "notificationType",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "notificationGroup",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ],
+              "description": "Notification"
+            },
+            {
+              "kind": "method",
+              "name": "markNotificationsAsRead",
+              "parameters": [
+                {
+                  "name": "notificationsHashes",
+                  "type": {
+                    "text": "EntryHash[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "dismissNotifications",
+              "parameters": [
+                {
+                  "name": "notificationsHashes",
+                  "type": {
+                    "text": "EntryHash[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "changeNotificationsStatus",
+              "parameters": [
+                {
+                  "name": "statusChanges",
+                  "type": {
+                    "text": "Record<EntryHashB64, NotificationStatus>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "queryNotificationsWithStatus",
+              "return": {
+                "type": {
+                  "text": "Promise<Record<EntryHashB64, Notification>>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "statusFilter",
+                  "type": {
+                    "text": "NotificationStatus"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getNotificationContents",
+              "return": {
+                "type": {
+                  "text": "Promise<NotificationContents>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "notification",
+                  "type": {
+                    "text": "Notification"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "ZomeClient",
+            "package": "@holochain-open-dev/utils"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NotificationsClient",
+          "declaration": {
+            "name": "NotificationsClient",
+            "module": "src/notifications-client.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/notifications-store.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NotificationsStore",
+          "members": [
+            {
+              "kind": "method",
+              "name": "buildQueryNotificationsWithStatusSignal",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "statusFilter",
+                  "type": {
+                    "text": "NotificationStatus"
+                  }
+                }
+              ],
+              "description": "Notifications"
+            },
+            {
+              "kind": "field",
+              "name": "_notificationContents",
+              "privacy": "private",
+              "default": "new HoloHashMap<\n\t\tEntryHash,\n\t\tAsyncSignal<NotificationContents>\n\t>()"
+            },
+            {
+              "kind": "method",
+              "name": "notificationContents",
+              "parameters": [
+                {
+                  "name": "notificationHash",
+                  "type": {
+                    "text": "EntryHash"
+                  }
+                },
+                {
+                  "name": "notification",
+                  "type": {
+                    "text": "Notification"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "unreadNotifications"
+            },
+            {
+              "kind": "field",
+              "name": "readNotifications"
+            },
+            {
+              "kind": "field",
+              "name": "dismissedNotifications"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NotificationsStore",
+          "declaration": {
+            "name": "NotificationsStore",
+            "module": "src/notifications-store.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/types.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "locales/locales.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "sourceLocale",
+          "default": "`en`",
+          "description": "The locale code that templates in this source code are written in."
+        },
+        {
+          "kind": "variable",
+          "name": "targetLocales",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  ,\n]",
+          "description": "The other locale codes that this application is localized into. Sorted\nlexicographically."
+        },
+        {
+          "kind": "variable",
+          "name": "allLocales",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  `en`,\n]",
+          "description": "All valid project locale codes. Sorted lexicographically."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "sourceLocale",
+          "declaration": {
+            "name": "sourceLocale",
+            "module": "locales/locales.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "targetLocales",
+          "declaration": {
+            "name": "targetLocales",
+            "module": "locales/locales.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "allLocales",
+          "declaration": {
+            "name": "allLocales",
+            "module": "locales/locales.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/my-notifications-icon-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MyNotificationsIconButton",
+          "cssParts": [
+            {
+              "name": "icon-button"
+            }
+          ],
+          "members": [],
+          "mixins": [
+            {
+              "name": "SignalWatcher",
+              "package": "@holochain-open-dev/signals"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "my-notifications-icon-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MyNotificationsIconButton",
+          "declaration": {
+            "name": "MyNotificationsIconButton",
+            "module": "src/elements/my-notifications-icon-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "my-notifications-icon-button",
+          "declaration": {
+            "name": "MyNotificationsIconButton",
+            "module": "src/elements/my-notifications-icon-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/my-notifications-list.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MyNotifications",
+          "members": [
+            {
+              "kind": "method",
+              "name": "renderNotificationGroup",
+              "parameters": [
+                {
+                  "name": "read",
+                  "type": {
+                    "text": "boolean"
+                  }
+                },
+                {
+                  "name": "notificationGroup",
+                  "type": {
+                    "text": "NotificationGroup"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getNotificationsGroups"
+            },
+            {
+              "kind": "method",
+              "name": "notificationCount"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "SignalWatcher",
+              "package": "@holochain-open-dev/signals"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "my-notifications-list",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MyNotifications",
+          "declaration": {
+            "name": "MyNotifications",
+            "module": "src/elements/my-notifications-list.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "my-notifications-list",
+          "declaration": {
+            "name": "MyNotifications",
+            "module": "src/elements/my-notifications-list.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/elements/notifications-context.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NotificationsContext",
+          "members": [
+            {
+              "kind": "field",
+              "name": "store",
+              "type": {
+                "text": "NotificationsStore"
+              },
+              "attribute": "store"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "store",
+              "type": {
+                "text": "NotificationsStore"
+              },
+              "fieldName": "store"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "notifications-context",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NotificationsContext",
+          "declaration": {
+            "name": "NotificationsContext",
+            "module": "src/elements/notifications-context.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "notifications-context",
+          "declaration": {
+            "name": "NotificationsContext",
+            "module": "src/elements/notifications-context.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
