@@ -1,4 +1,4 @@
-import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y,h as pt,R as ft,k as d,D as Bt,w as U,d as L,g as Mt,j as Nt,l as It}from"./notifications-client.Csl3ceiM.js";import{S as jt}from"./signal-watcher.BRzsZXdJ.js";import{n as Dt}from"./context.DwITtt2r.js";function Ft(t,e){{const r=t.find(i=>i&&i.status==="error");if(r)return r}{const r=t.find(i=>i&&i.status==="pending");if(r)return r}return{status:"completed",value:t.filter(r=>r.status==="completed").map(r=>r.value)}}/**
+import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y,h as pt,k as d,R as ft,D as Bt,w as U,d as L,g as Mt,j as Nt,l as It}from"./notifications-client.Csl3ceiM.js";import{S as jt}from"./signal-watcher.BRzsZXdJ.js";import{n as Dt}from"./context.DwITtt2r.js";function Ft(t,e){{const r=t.find(i=>i&&i.status==="error");if(r)return r}{const r=t.find(i=>i&&i.status==="pending");if(r)return r}return{status:"completed",value:t.filter(r=>r.status==="completed").map(r=>r.value)}}/**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -18,106 +18,27 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */function mt(t,e){return(o,r,i)=>{const s=n=>{var l;return((l=n.renderRoot)==null?void 0:l.querySelector(t))??null};return Pt(o,r,{get(){return s(this)}})}}const Rt=At("hc_zome_profiles/store"),Ut=[y`
-    .row {
-      display: flex;
-      flex-direction: row;
-    }
-    .column {
-      display: flex;
-      flex-direction: column;
-    }
-    .small-margin {
-      margin-top: 6px;
-    }
-    .big-margin {
-      margin-top: 23px;
-    }
-
-    .fill {
-      flex: 1;
-      height: 100%;
-    }
-
-    .title {
-      font-size: 20px;
-    }
-
-    .center-content {
-      align-items: center;
-      justify-content: center;
-    }
-
-    .placeholder {
-      color: var(--sl-color-gray-700);
-    }
-
-    .flex-scrollable-parent {
-      position: relative;
-      display: flex;
-      flex: 1;
-    }
-
-    .flex-scrollable-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
-    .flex-scrollable-x {
-      max-width: 100%;
-      overflow-x: auto;
-    }
-    .flex-scrollable-y {
-      max-height: 100%;
-      overflow-y: auto;
-    }
-    :host {
-      color: var(--sl-color-neutral-1000);
-    }
-
-    sl-card {
-      display: flex;
-    }
-    sl-card::part(base) {
-      flex: 1;
-    }
-    sl-card::part(body) {
-      display: flex;
-      flex: 1;
-    }
-    sl-drawer::part(body) {
-      display: flex;
-    }
-  `];/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const gt={ATTRIBUTE:1,CHILD:2,PROPERTY:3,BOOLEAN_ATTRIBUTE:4,EVENT:5,ELEMENT:6},yt=t=>(...e)=>({_$litDirective$:t,values:e});class wt{constructor(e){}get _$AU(){return this._$AM._$AU}_$AT(e,o,r){this.t=e,this._$AM=o,this.i=r}_$AS(e,o){return this.update(e,o)}update(e,o){return this.render(...o)}}/**
+ */function mt(t,e){return(o,r,i)=>{const s=n=>{var l;return((l=n.renderRoot)==null?void 0:l.querySelector(t))??null};return Pt(o,r,{get(){return s(this)}})}}const Rt=At("hc_zome_profiles/store");/**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */class J extends Event{constructor(e){super(J.eventName,{bubbles:!0,composed:!0,cancelable:!1}),this.routes=e}}J.eventName="lit-routes-connected";var E=y`
-  :host {
-    box-sizing: border-box;
-  }
-
-  :host *,
-  :host *::before,
-  :host *::after {
-    box-sizing: inherit;
-  }
-
-  [hidden] {
-    display: none !important;
-  }
-`,_t=Object.defineProperty,qt=Object.defineProperties,Ht=Object.getOwnPropertyDescriptor,Wt=Object.getOwnPropertyDescriptors,at=Object.getOwnPropertySymbols,Gt=Object.prototype.hasOwnProperty,Zt=Object.prototype.propertyIsEnumerable,lt=(t,e,o)=>e in t?_t(t,e,{enumerable:!0,configurable:!0,writable:!0,value:o}):t[e]=o,B=(t,e)=>{for(var o in e||(e={}))Gt.call(e,o)&&lt(t,o,e[o]);if(at)for(var o of at(e))Zt.call(e,o)&&lt(t,o,e[o]);return t},xt=(t,e)=>qt(t,Wt(e)),a=(t,e,o,r)=>{for(var i=r>1?void 0:r?Ht(e,o):e,s=t.length-1,n;s>=0;s--)(n=t[s])&&(i=(r?n(e,o,i):n(i))||i);return r&&i&&_t(e,o,i),i},kt=(t,e,o)=>{if(!e.has(t))throw TypeError("Cannot "+o)},Yt=(t,e,o)=>(kt(t,e,"read from private field"),e.get(t)),Xt=(t,e,o)=>{if(e.has(t))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(t):e.set(t,o)},Jt=(t,e,o,r)=>(kt(t,e,"write to private field"),e.set(t,o),o),j,v=class extends pt{constructor(){super(),Xt(this,j,!1),this.initialReflectedProperties=new Map,Object.entries(this.constructor.dependencies).forEach(([t,e])=>{this.constructor.define(t,e)})}emit(t,e){const o=new CustomEvent(t,B({bubbles:!0,cancelable:!1,composed:!0,detail:{}},e));return this.dispatchEvent(o),o}static define(t,e=this,o={}){const r=customElements.get(t);if(!r){try{customElements.define(t,e,o)}catch{customElements.define(t,class extends e{},o)}return}let i=" (unknown version)",s=i;"version"in e&&e.version&&(i=" v"+e.version),"version"in r&&r.version&&(s=" v"+r.version),!(i&&s&&i===s)&&console.warn(`Attempted to register <${t}>${i}, but <${t}>${s} has already been registered.`)}attributeChangedCallback(t,e,o){Yt(this,j)||(this.constructor.elementProperties.forEach((r,i)=>{r.reflect&&this[i]!=null&&this.initialReflectedProperties.set(i,this[i])}),Jt(this,j,!0)),super.attributeChangedCallback(t,e,o)}willUpdate(t){super.willUpdate(t),this.initialReflectedProperties.forEach((e,o)=>{t.has(o)&&this[o]==null&&(this[o]=e)})}};j=new WeakMap;v.version="2.17.1";v.dependencies={};a([c()],v.prototype,"dir",2);a([c()],v.prototype,"lang",2);/**
+ */const Ut=t=>typeof t!="string"&&"strTag"in t,qt=(t,e,o)=>{let r=t[0];for(let i=1;i<t.length;i++)r+=e[i-1],r+=t[i];return r};/**
  * @license
- * Copyright 2018 Google LLC
+ * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const K=yt(class extends wt{constructor(t){var e;if(super(t),t.type!==gt.ATTRIBUTE||t.name!=="class"||((e=t.strings)==null?void 0:e.length)>2)throw Error("`classMap()` can only be used in the `class` attribute and must be the only part in the attribute.")}render(t){return" "+Object.keys(t).filter(e=>t[e]).join(" ")+" "}update(t,[e]){var r,i;if(this.st===void 0){this.st=new Set,t.strings!==void 0&&(this.nt=new Set(t.strings.join(" ").split(/\s/).filter(s=>s!=="")));for(const s in e)e[s]&&!((r=this.nt)!=null&&r.has(s))&&this.st.add(s);return this.render(e)}const o=t.element.classList;for(const s of this.st)s in e||(o.remove(s),this.st.delete(s));for(const s in e){const n=!!e[s];n===this.st.has(s)||(i=this.nt)!=null&&i.has(s)||(n?(o.add(s),this.st.add(s)):(o.remove(s),this.st.delete(s)))}return ft}}),Z=new Set,$=new Map;let x,Q="ltr",tt="en";const $t=typeof MutationObserver<"u"&&typeof document<"u"&&typeof document.documentElement<"u";if($t){const t=new MutationObserver(St);Q=document.documentElement.dir||"ltr",tt=document.documentElement.lang||navigator.language,t.observe(document.documentElement,{attributes:!0,attributeFilter:["dir","lang"]})}function Ct(...t){t.map(e=>{const o=e.$code.toLowerCase();$.has(o)?$.set(o,Object.assign(Object.assign({},$.get(o)),e)):$.set(o,e),x||(x=e)}),St()}function St(){$t&&(Q=document.documentElement.dir||"ltr",tt=document.documentElement.lang||navigator.language),[...Z.keys()].map(t=>{typeof t.requestUpdate=="function"&&t.requestUpdate()})}let Kt=class{constructor(e){this.host=e,this.host.addController(this)}hostConnected(){Z.add(this.host)}hostDisconnected(){Z.delete(this.host)}dir(){return`${this.host.dir||Q}`.toLowerCase()}lang(){return`${this.host.lang||tt}`.toLowerCase()}getTranslationData(e){var o,r;const i=new Intl.Locale(e.replace(/_/g,"-")),s=i==null?void 0:i.language.toLowerCase(),n=(r=(o=i==null?void 0:i.region)===null||o===void 0?void 0:o.toLowerCase())!==null&&r!==void 0?r:"",l=$.get(`${s}-${n}`),h=$.get(s);return{locale:i,language:s,region:n,primary:l,secondary:h}}exists(e,o){var r;const{primary:i,secondary:s}=this.getTranslationData((r=o.lang)!==null&&r!==void 0?r:this.lang());return o=Object.assign({includeFallback:!1},o),!!(i&&i[e]||s&&s[e]||o.includeFallback&&x&&x[e])}term(e,...o){const{primary:r,secondary:i}=this.getTranslationData(this.lang());let s;if(r&&r[e])s=r[e];else if(i&&i[e])s=i[e];else if(x&&x[e])s=x[e];else return console.error(`No translation found for: ${String(e)}`),String(e);return typeof s=="function"?s(...o):s}date(e,o){return e=new Date(e),new Intl.DateTimeFormat(this.lang(),o).format(e)}number(e,o){return e=Number(e),isNaN(e)?"":new Intl.NumberFormat(this.lang(),o).format(e)}relativeTime(e,o,r){return new Intl.RelativeTimeFormat(this.lang(),r).format(e,o)}};var Et={$code:"en",$name:"English",$dir:"ltr",carousel:"Carousel",clearEntry:"Clear entry",close:"Close",copied:"Copied",copy:"Copy",currentValue:"Current value",error:"Error",goToSlide:(t,e)=>`Go to slide ${t} of ${e}`,hidePassword:"Hide password",loading:"Loading",nextSlide:"Next slide",numOptionsSelected:t=>t===0?"No options selected":t===1?"1 option selected":`${t} options selected`,previousSlide:"Previous slide",progress:"Progress",remove:"Remove",resize:"Resize",scrollToEnd:"Scroll to end",scrollToStart:"Scroll to start",selectAColorFromTheScreen:"Select a color from the screen",showPassword:"Show password",slideNum:t=>`Slide ${t}`,toggleColorFormat:"Toggle color format"};Ct(Et);var Qt=Et,et=class extends Kt{};Ct(Qt);function P(t,e){const o=B({waitUntilFirstUpdate:!1},e);return(r,i)=>{const{update:s}=r,n=Array.isArray(t)?t:[t];r.update=function(l){n.forEach(h=>{const p=h;if(l.has(p)){const w=l.get(p),_=this[p];w!==_&&(!o.waitUntilFirstUpdate||this.hasUpdated)&&this[i](w,_)}}),s.call(this,l)}}}var Y="";function ct(t){Y=t}function te(t=""){if(!Y){const e=[...document.getElementsByTagName("script")],o=e.find(r=>r.hasAttribute("data-shoelace"));if(o)ct(o.getAttribute("data-shoelace"));else{const r=e.find(s=>/shoelace(\.min)?\.js($|\?)/.test(s.src)||/shoelace-autoloader(\.min)?\.js($|\?)/.test(s.src));let i="";r&&(i=r.getAttribute("src")),ct(i.split("/").slice(0,-1).join("/"))}}return Y.replace(/\/$/,"")+(t?`/${t.replace(/^\//,"")}`:"")}var ee={name:"default",resolver:t=>te(`assets/icons/${t}.svg`)},oe=ee,ut={caret:`
+ */const Ht=t=>Ut(t)?qt(t.strings,t.values):t;let q=Ht;/**
+ * @license
+ * Copyright 2020 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */class Wt{constructor(){this.settled=!1,this.promise=new Promise((e,o)=>{this._resolve=e,this._reject=o})}resolve(e){this.settled=!0,this._resolve(e)}reject(e){this.settled=!0,this._reject(e)}}/**
+ * @license
+ * Copyright 2014 Travis Webb
+ * SPDX-License-Identifier: MIT
+ */for(let t=0;t<256;t++)(t>>4&15).toString(16)+(t&15).toString(16);/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */let Gt=new Wt;Gt.resolve();var Z="";function at(t){Z=t}function Zt(t=""){if(!Z){const e=[...document.getElementsByTagName("script")],o=e.find(r=>r.hasAttribute("data-shoelace"));if(o)at(o.getAttribute("data-shoelace"));else{const r=e.find(s=>/shoelace(\.min)?\.js($|\?)/.test(s.src)||/shoelace-autoloader(\.min)?\.js($|\?)/.test(s.src));let i="";r&&(i=r.getAttribute("src")),at(i.split("/").slice(0,-1).join("/"))}}return Z.replace(/\/$/,"")+(t?`/${t.replace(/^\//,"")}`:"")}var Yt={name:"default",resolver:t=>Zt(`assets/icons/${t}.svg`)},Xt=Yt,lt={caret:`
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
@@ -209,7 +130,7 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
     </svg>
-  `},re={name:"system",resolver:t=>t in ut?`data:image/svg+xml,${encodeURIComponent(ut[t])}`:""},se=re,ie=[oe,se],X=[];function ne(t){X.push(t)}function ae(t){X=X.filter(e=>e!==t)}function dt(t){return ie.find(e=>e.name===t)}var le=y`
+  `},Jt={name:"system",resolver:t=>t in lt?`data:image/svg+xml,${encodeURIComponent(lt[t])}`:""},Kt=Jt,Qt=[Xt,Kt],Y=[];function te(t){Y.push(t)}function ee(t){Y=Y.filter(e=>e!==t)}function ct(t){return Qt.find(e=>e.name===t)}var oe=y`
   :host {
     display: inline-block;
     width: 1em;
@@ -222,33 +143,35 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
     height: 100%;
     width: 100%;
   }
-`;/**
+`,gt=Object.defineProperty,re=Object.defineProperties,se=Object.getOwnPropertyDescriptor,ie=Object.getOwnPropertyDescriptors,ut=Object.getOwnPropertySymbols,ne=Object.prototype.hasOwnProperty,ae=Object.prototype.propertyIsEnumerable,dt=(t,e,o)=>e in t?gt(t,e,{enumerable:!0,configurable:!0,writable:!0,value:o}):t[e]=o,B=(t,e)=>{for(var o in e||(e={}))ne.call(e,o)&&dt(t,o,e[o]);if(ut)for(var o of ut(e))ae.call(e,o)&&dt(t,o,e[o]);return t},yt=(t,e)=>re(t,ie(e)),a=(t,e,o,r)=>{for(var i=r>1?void 0:r?se(e,o):e,s=t.length-1,n;s>=0;s--)(n=t[s])&&(i=(r?n(e,o,i):n(i))||i);return r&&i&&gt(e,o,i),i},wt=(t,e,o)=>{if(!e.has(t))throw TypeError("Cannot "+o)},le=(t,e,o)=>(wt(t,e,"read from private field"),e.get(t)),ce=(t,e,o)=>{if(e.has(t))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(t):e.set(t,o)},ue=(t,e,o,r)=>(wt(t,e,"write to private field"),e.set(t,o),o);function P(t,e){const o=B({waitUntilFirstUpdate:!1},e);return(r,i)=>{const{update:s}=r,n=Array.isArray(t)?t:[t];r.update=function(l){n.forEach(h=>{const p=h;if(l.has(p)){const w=l.get(p),_=this[p];w!==_&&(!o.waitUntilFirstUpdate||this.hasUpdated)&&this[i](w,_)}}),s.call(this,l)}}}var E=y`
+  :host {
+    box-sizing: border-box;
+  }
+
+  :host *,
+  :host *::before,
+  :host *::after {
+    box-sizing: inherit;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+`,j,v=class extends pt{constructor(){super(),ce(this,j,!1),this.initialReflectedProperties=new Map,Object.entries(this.constructor.dependencies).forEach(([t,e])=>{this.constructor.define(t,e)})}emit(t,e){const o=new CustomEvent(t,B({bubbles:!0,cancelable:!1,composed:!0,detail:{}},e));return this.dispatchEvent(o),o}static define(t,e=this,o={}){const r=customElements.get(t);if(!r){try{customElements.define(t,e,o)}catch{customElements.define(t,class extends e{},o)}return}let i=" (unknown version)",s=i;"version"in e&&e.version&&(i=" v"+e.version),"version"in r&&r.version&&(s=" v"+r.version),!(i&&s&&i===s)&&console.warn(`Attempted to register <${t}>${i}, but <${t}>${s} has already been registered.`)}attributeChangedCallback(t,e,o){le(this,j)||(this.constructor.elementProperties.forEach((r,i)=>{r.reflect&&this[i]!=null&&this.initialReflectedProperties.set(i,this[i])}),ue(this,j,!0)),super.attributeChangedCallback(t,e,o)}willUpdate(t){super.willUpdate(t),this.initialReflectedProperties.forEach((e,o)=>{t.has(o)&&this[o]==null&&(this[o]=e)})}};j=new WeakMap;v.version="2.17.1";v.dependencies={};a([c()],v.prototype,"dir",2);a([c()],v.prototype,"lang",2);/**
  * @license
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const ce=(t,e)=>(t==null?void 0:t._$litType$)!==void 0;var O=Symbol(),M=Symbol(),q,H=new Map,m=class extends v{constructor(){super(...arguments),this.initialRender=!1,this.svg=null,this.label="",this.library="default"}async resolveIcon(t,e){var o;let r;if(e!=null&&e.spriteSheet)return this.svg=d`<svg part="svg">
+ */const de=(t,e)=>(t==null?void 0:t._$litType$)!==void 0;var O=Symbol(),M=Symbol(),H,W=new Map,m=class extends v{constructor(){super(...arguments),this.initialRender=!1,this.svg=null,this.label="",this.library="default"}async resolveIcon(t,e){var o;let r;if(e!=null&&e.spriteSheet)return this.svg=d`<svg part="svg">
         <use part="use" href="${t}"></use>
-      </svg>`,this.svg;try{if(r=await fetch(t,{mode:"cors"}),!r.ok)return r.status===410?O:M}catch{return M}try{const i=document.createElement("div");i.innerHTML=await r.text();const s=i.firstElementChild;if(((o=s==null?void 0:s.tagName)==null?void 0:o.toLowerCase())!=="svg")return O;q||(q=new DOMParser);const l=q.parseFromString(s.outerHTML,"text/html").body.querySelector("svg");return l?(l.part.add("svg"),document.adoptNode(l)):O}catch{return O}}connectedCallback(){super.connectedCallback(),ne(this)}firstUpdated(){this.initialRender=!0,this.setIcon()}disconnectedCallback(){super.disconnectedCallback(),ae(this)}getIconSource(){const t=dt(this.library);return this.name&&t?{url:t.resolver(this.name),fromLibrary:!0}:{url:this.src,fromLibrary:!1}}handleLabelChange(){typeof this.label=="string"&&this.label.length>0?(this.setAttribute("role","img"),this.setAttribute("aria-label",this.label),this.removeAttribute("aria-hidden")):(this.removeAttribute("role"),this.removeAttribute("aria-label"),this.setAttribute("aria-hidden","true"))}async setIcon(){var t;const{url:e,fromLibrary:o}=this.getIconSource(),r=o?dt(this.library):void 0;if(!e){this.svg=null;return}let i=H.get(e);if(i||(i=this.resolveIcon(e,r),H.set(e,i)),!this.initialRender)return;const s=await i;if(s===M&&H.delete(e),e===this.getIconSource().url){if(ce(s)){if(this.svg=s,r){await this.updateComplete;const n=this.shadowRoot.querySelector("[part='svg']");typeof r.mutator=="function"&&n&&r.mutator(n)}return}switch(s){case M:case O:this.svg=null,this.emit("sl-error");break;default:this.svg=s.cloneNode(!0),(t=r==null?void 0:r.mutator)==null||t.call(r,this.svg),this.emit("sl-load")}}}render(){return this.svg}};m.styles=[E,le];a([S()],m.prototype,"svg",2);a([c({reflect:!0})],m.prototype,"name",2);a([c()],m.prototype,"src",2);a([c()],m.prototype,"label",2);a([c({reflect:!0})],m.prototype,"library",2);a([P("label")],m.prototype,"handleLabelChange",1);a([P(["name","src","library"])],m.prototype,"setIcon",1);m.define("sl-icon");/**
+      </svg>`,this.svg;try{if(r=await fetch(t,{mode:"cors"}),!r.ok)return r.status===410?O:M}catch{return M}try{const i=document.createElement("div");i.innerHTML=await r.text();const s=i.firstElementChild;if(((o=s==null?void 0:s.tagName)==null?void 0:o.toLowerCase())!=="svg")return O;H||(H=new DOMParser);const l=H.parseFromString(s.outerHTML,"text/html").body.querySelector("svg");return l?(l.part.add("svg"),document.adoptNode(l)):O}catch{return O}}connectedCallback(){super.connectedCallback(),te(this)}firstUpdated(){this.initialRender=!0,this.setIcon()}disconnectedCallback(){super.disconnectedCallback(),ee(this)}getIconSource(){const t=ct(this.library);return this.name&&t?{url:t.resolver(this.name),fromLibrary:!0}:{url:this.src,fromLibrary:!1}}handleLabelChange(){typeof this.label=="string"&&this.label.length>0?(this.setAttribute("role","img"),this.setAttribute("aria-label",this.label),this.removeAttribute("aria-hidden")):(this.removeAttribute("role"),this.removeAttribute("aria-label"),this.setAttribute("aria-hidden","true"))}async setIcon(){var t;const{url:e,fromLibrary:o}=this.getIconSource(),r=o?ct(this.library):void 0;if(!e){this.svg=null;return}let i=W.get(e);if(i||(i=this.resolveIcon(e,r),W.set(e,i)),!this.initialRender)return;const s=await i;if(s===M&&W.delete(e),e===this.getIconSource().url){if(de(s)){if(this.svg=s,r){await this.updateComplete;const n=this.shadowRoot.querySelector("[part='svg']");typeof r.mutator=="function"&&n&&r.mutator(n)}return}switch(s){case M:case O:this.svg=null,this.emit("sl-error");break;default:this.svg=s.cloneNode(!0),(t=r==null?void 0:r.mutator)==null||t.call(r,this.svg),this.emit("sl-load")}}}render(){return this.svg}};m.styles=[E,oe];a([S()],m.prototype,"svg",2);a([c({reflect:!0})],m.prototype,"name",2);a([c()],m.prototype,"src",2);a([c()],m.prototype,"label",2);a([c({reflect:!0})],m.prototype,"library",2);a([P("label")],m.prototype,"handleLabelChange",1);a([P(["name","src","library"])],m.prototype,"setIcon",1);/**
  * @license
- * Copyright 2021 Google LLC
+ * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const ue=t=>typeof t!="string"&&"strTag"in t,de=(t,e,o)=>{let r=t[0];for(let i=1;i<t.length;i++)r+=e[i-1],r+=t[i];return r};/**
+ */const _t={ATTRIBUTE:1,CHILD:2,PROPERTY:3,BOOLEAN_ATTRIBUTE:4,EVENT:5,ELEMENT:6},xt=t=>(...e)=>({_$litDirective$:t,values:e});class kt{constructor(e){}get _$AU(){return this._$AM._$AU}_$AT(e,o,r){this.t=e,this._$AM=o,this.i=r}_$AS(e,o){return this.update(e,o)}update(e,o){return this.render(...o)}}/**
  * @license
- * Copyright 2021 Google LLC
+ * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const he=t=>ue(t)?de(t.strings,t.values):t;let W=he;/**
- * @license
- * Copyright 2020 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */class be{constructor(){this.settled=!1,this.promise=new Promise((e,o)=>{this._resolve=e,this._reject=o})}resolve(e){this.settled=!0,this._resolve(e)}reject(e){this.settled=!0,this._reject(e)}}/**
- * @license
- * Copyright 2014 Travis Webb
- * SPDX-License-Identifier: MIT
- */for(let t=0;t<256;t++)(t>>4&15).toString(16)+(t&15).toString(16);/**
- * @license
- * Copyright 2021 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */let pe=new be;pe.resolve();var fe=y`
+ */const J=xt(class extends kt{constructor(t){var e;if(super(t),t.type!==_t.ATTRIBUTE||t.name!=="class"||((e=t.strings)==null?void 0:e.length)>2)throw Error("`classMap()` can only be used in the `class` attribute and must be the only part in the attribute.")}render(t){return" "+Object.keys(t).filter(e=>t[e]).join(" ")+" "}update(t,[e]){var r,i;if(this.st===void 0){this.st=new Set,t.strings!==void 0&&(this.nt=new Set(t.strings.join(" ").split(/\s/).filter(s=>s!=="")));for(const s in e)e[s]&&!((r=this.nt)!=null&&r.has(s))&&this.st.add(s);return this.render(e)}const o=t.element.classList;for(const s of this.st)s in e||(o.remove(s),this.st.delete(s));for(const s in e){const n=!!e[s];n===this.st.has(s)||(i=this.nt)!=null&&i.has(s)||(n?(o.add(s),this.st.add(s)):(o.remove(s),this.st.delete(s)))}return ft}});m.define("sl-icon");var he=y`
   :host {
     --border-radius: var(--sl-border-radius-pill);
     --color: var(--sl-color-neutral-200);
@@ -308,22 +231,26 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
       opacity: 1;
     }
   }
-`,ot=class extends v{constructor(){super(...arguments),this.effect="none"}render(){return d`
+`,K=class extends v{constructor(){super(...arguments),this.effect="none"}render(){return d`
       <div
         part="base"
-        class=${K({skeleton:!0,"skeleton--pulse":this.effect==="pulse","skeleton--sheen":this.effect==="sheen"})}
+        class=${J({skeleton:!0,"skeleton--pulse":this.effect==="pulse","skeleton--sheen":this.effect==="sheen"})}
       >
         <div part="indicator" class="skeleton__indicator"></div>
       </div>
-    `}};ot.styles=[E,fe];a([c()],ot.prototype,"effect",2);ot.define("sl-skeleton");/**
+    `}};K.styles=[E,he];a([c()],K.prototype,"effect",2);K.define("sl-skeleton");const X=new Set,$=new Map;let x,Q="ltr",tt="en";const $t=typeof MutationObserver<"u"&&typeof document<"u"&&typeof document.documentElement<"u";if($t){const t=new MutationObserver(St);Q=document.documentElement.dir||"ltr",tt=document.documentElement.lang||navigator.language,t.observe(document.documentElement,{attributes:!0,attributeFilter:["dir","lang"]})}function Ct(...t){t.map(e=>{const o=e.$code.toLowerCase();$.has(o)?$.set(o,Object.assign(Object.assign({},$.get(o)),e)):$.set(o,e),x||(x=e)}),St()}function St(){$t&&(Q=document.documentElement.dir||"ltr",tt=document.documentElement.lang||navigator.language),[...X.keys()].map(t=>{typeof t.requestUpdate=="function"&&t.requestUpdate()})}let be=class{constructor(e){this.host=e,this.host.addController(this)}hostConnected(){X.add(this.host)}hostDisconnected(){X.delete(this.host)}dir(){return`${this.host.dir||Q}`.toLowerCase()}lang(){return`${this.host.lang||tt}`.toLowerCase()}getTranslationData(e){var o,r;const i=new Intl.Locale(e.replace(/_/g,"-")),s=i==null?void 0:i.language.toLowerCase(),n=(r=(o=i==null?void 0:i.region)===null||o===void 0?void 0:o.toLowerCase())!==null&&r!==void 0?r:"",l=$.get(`${s}-${n}`),h=$.get(s);return{locale:i,language:s,region:n,primary:l,secondary:h}}exists(e,o){var r;const{primary:i,secondary:s}=this.getTranslationData((r=o.lang)!==null&&r!==void 0?r:this.lang());return o=Object.assign({includeFallback:!1},o),!!(i&&i[e]||s&&s[e]||o.includeFallback&&x&&x[e])}term(e,...o){const{primary:r,secondary:i}=this.getTranslationData(this.lang());let s;if(r&&r[e])s=r[e];else if(i&&i[e])s=i[e];else if(x&&x[e])s=x[e];else return console.error(`No translation found for: ${String(e)}`),String(e);return typeof s=="function"?s(...o):s}date(e,o){return e=new Date(e),new Intl.DateTimeFormat(this.lang(),o).format(e)}number(e,o){return e=Number(e),isNaN(e)?"":new Intl.NumberFormat(this.lang(),o).format(e)}relativeTime(e,o,r){return new Intl.RelativeTimeFormat(this.lang(),r).format(e,o)}};var Et={$code:"en",$name:"English",$dir:"ltr",carousel:"Carousel",clearEntry:"Clear entry",close:"Close",copied:"Copied",copy:"Copy",currentValue:"Current value",error:"Error",goToSlide:(t,e)=>`Go to slide ${t} of ${e}`,hidePassword:"Hide password",loading:"Loading",nextSlide:"Next slide",numOptionsSelected:t=>t===0?"No options selected":t===1?"1 option selected":`${t} options selected`,previousSlide:"Previous slide",progress:"Progress",remove:"Remove",resize:"Resize",scrollToEnd:"Scroll to end",scrollToStart:"Scroll to start",selectAColorFromTheScreen:"Select a color from the screen",showPassword:"Show password",slideNum:t=>`Slide ${t}`,toggleColorFormat:"Toggle color format"};Ct(Et);var pe=Et,et=class extends be{};Ct(pe);/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */class ot extends Event{constructor(e){super(ot.eventName,{bubbles:!0,composed:!0,cancelable:!1}),this.routes=e}}ot.eventName="lit-routes-connected";/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const zt="important",ve=" !"+zt,ht=yt(class extends wt{constructor(t){var e;if(super(t),t.type!==gt.ATTRIBUTE||t.name!=="style"||((e=t.strings)==null?void 0:e.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((e,o)=>{const r=t[o];return r==null?e:e+`${o=o.includes("-")?o:o.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${r};`},"")}update(t,[e]){const{style:o}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(e)),this.render(e);for(const r of this.ft)e[r]==null&&(this.ft.delete(r),r.includes("-")?o.removeProperty(r):o[r]=null);for(const r in e){const i=e[r];if(i!=null){this.ft.add(r);const s=typeof i=="string"&&i.endsWith(ve);r.includes("-")||s?o.setProperty(r,s?i.slice(0,-11):i,s?zt:""):o[r]=i}}return ft}});var me=class{constructor(t,...e){this.slotNames=[],this.handleSlotChange=o=>{const r=o.target;(this.slotNames.includes("[default]")&&!r.name||r.name&&this.slotNames.includes(r.name))&&this.host.requestUpdate()},(this.host=t).addController(this),this.slotNames=e}hasDefaultSlot(){return[...this.host.childNodes].some(t=>{if(t.nodeType===t.TEXT_NODE&&t.textContent.trim()!=="")return!0;if(t.nodeType===t.ELEMENT_NODE){const e=t;if(e.tagName.toLowerCase()==="sl-visually-hidden")return!1;if(!e.hasAttribute("slot"))return!0}return!1})}hasNamedSlot(t){return this.host.querySelector(`:scope > [slot="${t}"]`)!==null}test(t){return t==="[default]"?this.hasDefaultSlot():this.hasNamedSlot(t)}hostConnected(){this.host.shadowRoot.addEventListener("slotchange",this.handleSlotChange)}hostDisconnected(){this.host.shadowRoot.removeEventListener("slotchange",this.handleSlotChange)}};/**
+ */const zt="important",fe=" !"+zt,ht=xt(class extends kt{constructor(t){var e;if(super(t),t.type!==_t.ATTRIBUTE||t.name!=="style"||((e=t.strings)==null?void 0:e.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((e,o)=>{const r=t[o];return r==null?e:e+`${o=o.includes("-")?o:o.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${r};`},"")}update(t,[e]){const{style:o}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(e)),this.render(e);for(const r of this.ft)e[r]==null&&(this.ft.delete(r),r.includes("-")?o.removeProperty(r):o[r]=null);for(const r in e){const i=e[r];if(i!=null){this.ft.add(r);const s=typeof i=="string"&&i.endsWith(fe);r.includes("-")||s?o.setProperty(r,s?i.slice(0,-11):i,s?zt:""):o[r]=i}}return ft}});var ve=class{constructor(t,...e){this.slotNames=[],this.handleSlotChange=o=>{const r=o.target;(this.slotNames.includes("[default]")&&!r.name||r.name&&this.slotNames.includes(r.name))&&this.host.requestUpdate()},(this.host=t).addController(this),this.slotNames=e}hasDefaultSlot(){return[...this.host.childNodes].some(t=>{if(t.nodeType===t.TEXT_NODE&&t.textContent.trim()!=="")return!0;if(t.nodeType===t.ELEMENT_NODE){const e=t;if(e.tagName.toLowerCase()==="sl-visually-hidden")return!1;if(!e.hasAttribute("slot"))return!0}return!1})}hasNamedSlot(t){return this.host.querySelector(`:scope > [slot="${t}"]`)!==null}test(t){return t==="[default]"?this.hasDefaultSlot():this.hasNamedSlot(t)}hostConnected(){this.host.shadowRoot.addEventListener("slotchange",this.handleSlotChange)}hostDisconnected(){this.host.shadowRoot.removeEventListener("slotchange",this.handleSlotChange)}};/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const b=t=>t??Bt;var ge=y`
+ */const b=t=>t??Bt;var me=y`
   :host {
     display: inline-block;
     color: var(--sl-color-neutral-600);
@@ -374,11 +301,11 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
  * @license
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const Lt=Symbol.for(""),ye=t=>{if((t==null?void 0:t.r)===Lt)return t==null?void 0:t._$litStatic$},F=(t,...e)=>({_$litStatic$:e.reduce((o,r,i)=>o+(s=>{if(s._$litStatic$!==void 0)return s._$litStatic$;throw Error(`Value passed to 'literal' function must be a 'literal' result: ${s}. Use 'unsafeStatic' to pass non-literal values, but
-            take care to ensure page security.`)})(r)+t[i+1],t[0]),r:Lt}),bt=new Map,we=t=>(e,...o)=>{const r=o.length;let i,s;const n=[],l=[];let h,p=0,w=!1;for(;p<r;){for(h=e[p];p<r&&(s=o[p],(i=ye(s))!==void 0);)h+=i+e[++p],w=!0;p!==r&&l.push(s),n.push(h),p++}if(p===r&&n.push(e[r]),w){const _=n.join("$$lit$$");(e=bt.get(_))===void 0&&(n.raw=n,bt.set(_,e=n)),o=l}return t(e,...o)},D=we(d);var f=class extends v{constructor(){super(...arguments),this.hasFocus=!1,this.label="",this.disabled=!1}handleBlur(){this.hasFocus=!1,this.emit("sl-blur")}handleFocus(){this.hasFocus=!0,this.emit("sl-focus")}handleClick(t){this.disabled&&(t.preventDefault(),t.stopPropagation())}click(){this.button.click()}focus(t){this.button.focus(t)}blur(){this.button.blur()}render(){const t=!!this.href,e=t?F`a`:F`button`;return D`
+ */const Lt=Symbol.for(""),ge=t=>{if((t==null?void 0:t.r)===Lt)return t==null?void 0:t._$litStatic$},F=(t,...e)=>({_$litStatic$:e.reduce((o,r,i)=>o+(s=>{if(s._$litStatic$!==void 0)return s._$litStatic$;throw Error(`Value passed to 'literal' function must be a 'literal' result: ${s}. Use 'unsafeStatic' to pass non-literal values, but
+            take care to ensure page security.`)})(r)+t[i+1],t[0]),r:Lt}),bt=new Map,ye=t=>(e,...o)=>{const r=o.length;let i,s;const n=[],l=[];let h,p=0,w=!1;for(;p<r;){for(h=e[p];p<r&&(s=o[p],(i=ge(s))!==void 0);)h+=i+e[++p],w=!0;p!==r&&l.push(s),n.push(h),p++}if(p===r&&n.push(e[r]),w){const _=n.join("$$lit$$");(e=bt.get(_))===void 0&&(n.raw=n,bt.set(_,e=n)),o=l}return t(e,...o)},D=ye(d);var f=class extends v{constructor(){super(...arguments),this.hasFocus=!1,this.label="",this.disabled=!1}handleBlur(){this.hasFocus=!1,this.emit("sl-blur")}handleFocus(){this.hasFocus=!0,this.emit("sl-focus")}handleClick(t){this.disabled&&(t.preventDefault(),t.stopPropagation())}click(){this.button.click()}focus(t){this.button.focus(t)}blur(){this.button.blur()}render(){const t=!!this.href,e=t?F`a`:F`button`;return D`
       <${e}
         part="base"
-        class=${K({"icon-button":!0,"icon-button--disabled":!t&&this.disabled,"icon-button--focused":this.hasFocus})}
+        class=${J({"icon-button":!0,"icon-button--disabled":!t&&this.disabled,"icon-button--focused":this.hasFocus})}
         ?disabled=${b(t?void 0:this.disabled)}
         type=${b(t?void 0:"button")}
         href=${b(t?this.href:void 0)}
@@ -401,7 +328,7 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
           aria-hidden="true"
         ></sl-icon>
       </${e}>
-    `}};f.styles=[E,ge];f.dependencies={"sl-icon":m};a([mt(".icon-button")],f.prototype,"button",2);a([S()],f.prototype,"hasFocus",2);a([c()],f.prototype,"name",2);a([c()],f.prototype,"library",2);a([c()],f.prototype,"src",2);a([c()],f.prototype,"href",2);a([c()],f.prototype,"target",2);a([c()],f.prototype,"download",2);a([c()],f.prototype,"label",2);a([c({type:Boolean,reflect:!0})],f.prototype,"disabled",2);f.define("sl-icon-button");var _e=y`
+    `}};f.styles=[E,me];f.dependencies={"sl-icon":m};a([mt(".icon-button")],f.prototype,"button",2);a([S()],f.prototype,"hasFocus",2);a([c()],f.prototype,"name",2);a([c()],f.prototype,"library",2);a([c()],f.prototype,"src",2);a([c()],f.prototype,"href",2);a([c()],f.prototype,"target",2);a([c()],f.prototype,"download",2);a([c()],f.prototype,"label",2);a([c({type:Boolean,reflect:!0})],f.prototype,"disabled",2);f.define("sl-icon-button");var we=y`
   :host {
     --track-width: 2px;
     --track-color: rgb(128 128 128 / 25%);
@@ -463,7 +390,80 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
         <circle class="spinner__track"></circle>
         <circle class="spinner__indicator"></circle>
       </svg>
-    `}};Ot.styles=[E,_e];var T=new WeakMap,A=new WeakMap,V=new WeakMap,G=new WeakSet,N=new WeakMap,xe=class{constructor(t,e){this.handleFormData=o=>{const r=this.options.disabled(this.host),i=this.options.name(this.host),s=this.options.value(this.host),n=this.host.tagName.toLowerCase()==="sl-button";this.host.isConnected&&!r&&!n&&typeof i=="string"&&i.length>0&&typeof s<"u"&&(Array.isArray(s)?s.forEach(l=>{o.formData.append(i,l.toString())}):o.formData.append(i,s.toString()))},this.handleFormSubmit=o=>{var r;const i=this.options.disabled(this.host),s=this.options.reportValidity;this.form&&!this.form.noValidate&&((r=T.get(this.form))==null||r.forEach(n=>{this.setUserInteracted(n,!0)})),this.form&&!this.form.noValidate&&!i&&!s(this.host)&&(o.preventDefault(),o.stopImmediatePropagation())},this.handleFormReset=()=>{this.options.setValue(this.host,this.options.defaultValue(this.host)),this.setUserInteracted(this.host,!1),N.set(this.host,[])},this.handleInteraction=o=>{const r=N.get(this.host);r.includes(o.type)||r.push(o.type),r.length===this.options.assumeInteractionOn.length&&this.setUserInteracted(this.host,!0)},this.checkFormValidity=()=>{if(this.form&&!this.form.noValidate){const o=this.form.querySelectorAll("*");for(const r of o)if(typeof r.checkValidity=="function"&&!r.checkValidity())return!1}return!0},this.reportFormValidity=()=>{if(this.form&&!this.form.noValidate){const o=this.form.querySelectorAll("*");for(const r of o)if(typeof r.reportValidity=="function"&&!r.reportValidity())return!1}return!0},(this.host=t).addController(this),this.options=B({form:o=>{const r=o.form;if(r){const s=o.getRootNode().querySelector(`#${r}`);if(s)return s}return o.closest("form")},name:o=>o.name,value:o=>o.value,defaultValue:o=>o.defaultValue,disabled:o=>{var r;return(r=o.disabled)!=null?r:!1},reportValidity:o=>typeof o.reportValidity=="function"?o.reportValidity():!0,checkValidity:o=>typeof o.checkValidity=="function"?o.checkValidity():!0,setValue:(o,r)=>o.value=r,assumeInteractionOn:["sl-input"]},e)}hostConnected(){const t=this.options.form(this.host);t&&this.attachForm(t),N.set(this.host,[]),this.options.assumeInteractionOn.forEach(e=>{this.host.addEventListener(e,this.handleInteraction)})}hostDisconnected(){this.detachForm(),N.delete(this.host),this.options.assumeInteractionOn.forEach(t=>{this.host.removeEventListener(t,this.handleInteraction)})}hostUpdated(){const t=this.options.form(this.host);t||this.detachForm(),t&&this.form!==t&&(this.detachForm(),this.attachForm(t)),this.host.hasUpdated&&this.setValidity(this.host.validity.valid)}attachForm(t){t?(this.form=t,T.has(this.form)?T.get(this.form).add(this.host):T.set(this.form,new Set([this.host])),this.form.addEventListener("formdata",this.handleFormData),this.form.addEventListener("submit",this.handleFormSubmit),this.form.addEventListener("reset",this.handleFormReset),A.has(this.form)||(A.set(this.form,this.form.reportValidity),this.form.reportValidity=()=>this.reportFormValidity()),V.has(this.form)||(V.set(this.form,this.form.checkValidity),this.form.checkValidity=()=>this.checkFormValidity())):this.form=void 0}detachForm(){if(!this.form)return;const t=T.get(this.form);t&&(t.delete(this.host),t.size<=0&&(this.form.removeEventListener("formdata",this.handleFormData),this.form.removeEventListener("submit",this.handleFormSubmit),this.form.removeEventListener("reset",this.handleFormReset),A.has(this.form)&&(this.form.reportValidity=A.get(this.form),A.delete(this.form)),V.has(this.form)&&(this.form.checkValidity=V.get(this.form),V.delete(this.form)),this.form=void 0))}setUserInteracted(t,e){e?G.add(t):G.delete(t),t.requestUpdate()}doAction(t,e){if(this.form){const o=document.createElement("button");o.type=t,o.style.position="absolute",o.style.width="0",o.style.height="0",o.style.clipPath="inset(50%)",o.style.overflow="hidden",o.style.whiteSpace="nowrap",e&&(o.name=e.name,o.value=e.value,["formaction","formenctype","formmethod","formnovalidate","formtarget"].forEach(r=>{e.hasAttribute(r)&&o.setAttribute(r,e.getAttribute(r))})),this.form.append(o),o.click(),o.remove()}}getForm(){var t;return(t=this.form)!=null?t:null}reset(t){this.doAction("reset",t)}submit(t){this.doAction("submit",t)}setValidity(t){const e=this.host,o=!!G.has(e),r=!!e.required;e.toggleAttribute("data-required",r),e.toggleAttribute("data-optional",!r),e.toggleAttribute("data-invalid",!t),e.toggleAttribute("data-valid",t),e.toggleAttribute("data-user-invalid",!t&&o),e.toggleAttribute("data-user-valid",t&&o)}updateValidity(){const t=this.host;this.setValidity(t.validity.valid)}emitInvalidEvent(t){const e=new CustomEvent("sl-invalid",{bubbles:!1,composed:!1,cancelable:!0,detail:{}});t||e.preventDefault(),this.host.dispatchEvent(e)||t==null||t.preventDefault()}},rt=Object.freeze({badInput:!1,customError:!1,patternMismatch:!1,rangeOverflow:!1,rangeUnderflow:!1,stepMismatch:!1,tooLong:!1,tooShort:!1,typeMismatch:!1,valid:!0,valueMissing:!1});Object.freeze(xt(B({},rt),{valid:!1,valueMissing:!0}));Object.freeze(xt(B({},rt),{valid:!1,customError:!0}));var ke=y`
+    `}};Ot.styles=[E,we];const _e=[y`
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+    .small-margin {
+      margin-top: 6px;
+    }
+    .big-margin {
+      margin-top: 23px;
+    }
+
+    .fill {
+      flex: 1;
+      height: 100%;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+
+    .center-content {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder {
+      color: var(--sl-color-gray-700);
+    }
+
+    .flex-scrollable-parent {
+      position: relative;
+      display: flex;
+      flex: 1;
+    }
+
+    .flex-scrollable-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .flex-scrollable-x {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    .flex-scrollable-y {
+      max-height: 100%;
+      overflow-y: auto;
+    }
+    :host {
+      color: var(--sl-color-neutral-1000);
+    }
+
+    sl-card {
+      display: flex;
+    }
+    sl-card::part(base) {
+      flex: 1;
+    }
+    sl-card::part(body) {
+      display: flex;
+      flex: 1;
+    }
+    sl-drawer::part(body) {
+      display: flex;
+    }
+  `];var T=new WeakMap,A=new WeakMap,V=new WeakMap,G=new WeakSet,N=new WeakMap,xe=class{constructor(t,e){this.handleFormData=o=>{const r=this.options.disabled(this.host),i=this.options.name(this.host),s=this.options.value(this.host),n=this.host.tagName.toLowerCase()==="sl-button";this.host.isConnected&&!r&&!n&&typeof i=="string"&&i.length>0&&typeof s<"u"&&(Array.isArray(s)?s.forEach(l=>{o.formData.append(i,l.toString())}):o.formData.append(i,s.toString()))},this.handleFormSubmit=o=>{var r;const i=this.options.disabled(this.host),s=this.options.reportValidity;this.form&&!this.form.noValidate&&((r=T.get(this.form))==null||r.forEach(n=>{this.setUserInteracted(n,!0)})),this.form&&!this.form.noValidate&&!i&&!s(this.host)&&(o.preventDefault(),o.stopImmediatePropagation())},this.handleFormReset=()=>{this.options.setValue(this.host,this.options.defaultValue(this.host)),this.setUserInteracted(this.host,!1),N.set(this.host,[])},this.handleInteraction=o=>{const r=N.get(this.host);r.includes(o.type)||r.push(o.type),r.length===this.options.assumeInteractionOn.length&&this.setUserInteracted(this.host,!0)},this.checkFormValidity=()=>{if(this.form&&!this.form.noValidate){const o=this.form.querySelectorAll("*");for(const r of o)if(typeof r.checkValidity=="function"&&!r.checkValidity())return!1}return!0},this.reportFormValidity=()=>{if(this.form&&!this.form.noValidate){const o=this.form.querySelectorAll("*");for(const r of o)if(typeof r.reportValidity=="function"&&!r.reportValidity())return!1}return!0},(this.host=t).addController(this),this.options=B({form:o=>{const r=o.form;if(r){const s=o.getRootNode().querySelector(`#${r}`);if(s)return s}return o.closest("form")},name:o=>o.name,value:o=>o.value,defaultValue:o=>o.defaultValue,disabled:o=>{var r;return(r=o.disabled)!=null?r:!1},reportValidity:o=>typeof o.reportValidity=="function"?o.reportValidity():!0,checkValidity:o=>typeof o.checkValidity=="function"?o.checkValidity():!0,setValue:(o,r)=>o.value=r,assumeInteractionOn:["sl-input"]},e)}hostConnected(){const t=this.options.form(this.host);t&&this.attachForm(t),N.set(this.host,[]),this.options.assumeInteractionOn.forEach(e=>{this.host.addEventListener(e,this.handleInteraction)})}hostDisconnected(){this.detachForm(),N.delete(this.host),this.options.assumeInteractionOn.forEach(t=>{this.host.removeEventListener(t,this.handleInteraction)})}hostUpdated(){const t=this.options.form(this.host);t||this.detachForm(),t&&this.form!==t&&(this.detachForm(),this.attachForm(t)),this.host.hasUpdated&&this.setValidity(this.host.validity.valid)}attachForm(t){t?(this.form=t,T.has(this.form)?T.get(this.form).add(this.host):T.set(this.form,new Set([this.host])),this.form.addEventListener("formdata",this.handleFormData),this.form.addEventListener("submit",this.handleFormSubmit),this.form.addEventListener("reset",this.handleFormReset),A.has(this.form)||(A.set(this.form,this.form.reportValidity),this.form.reportValidity=()=>this.reportFormValidity()),V.has(this.form)||(V.set(this.form,this.form.checkValidity),this.form.checkValidity=()=>this.checkFormValidity())):this.form=void 0}detachForm(){if(!this.form)return;const t=T.get(this.form);t&&(t.delete(this.host),t.size<=0&&(this.form.removeEventListener("formdata",this.handleFormData),this.form.removeEventListener("submit",this.handleFormSubmit),this.form.removeEventListener("reset",this.handleFormReset),A.has(this.form)&&(this.form.reportValidity=A.get(this.form),A.delete(this.form)),V.has(this.form)&&(this.form.checkValidity=V.get(this.form),V.delete(this.form)),this.form=void 0))}setUserInteracted(t,e){e?G.add(t):G.delete(t),t.requestUpdate()}doAction(t,e){if(this.form){const o=document.createElement("button");o.type=t,o.style.position="absolute",o.style.width="0",o.style.height="0",o.style.clipPath="inset(50%)",o.style.overflow="hidden",o.style.whiteSpace="nowrap",e&&(o.name=e.name,o.value=e.value,["formaction","formenctype","formmethod","formnovalidate","formtarget"].forEach(r=>{e.hasAttribute(r)&&o.setAttribute(r,e.getAttribute(r))})),this.form.append(o),o.click(),o.remove()}}getForm(){var t;return(t=this.form)!=null?t:null}reset(t){this.doAction("reset",t)}submit(t){this.doAction("submit",t)}setValidity(t){const e=this.host,o=!!G.has(e),r=!!e.required;e.toggleAttribute("data-required",r),e.toggleAttribute("data-optional",!r),e.toggleAttribute("data-invalid",!t),e.toggleAttribute("data-valid",t),e.toggleAttribute("data-user-invalid",!t&&o),e.toggleAttribute("data-user-valid",t&&o)}updateValidity(){const t=this.host;this.setValidity(t.validity.valid)}emitInvalidEvent(t){const e=new CustomEvent("sl-invalid",{bubbles:!1,composed:!1,cancelable:!0,detail:{}});t||e.preventDefault(),this.host.dispatchEvent(e)||t==null||t.preventDefault()}},rt=Object.freeze({badInput:!1,customError:!1,patternMismatch:!1,rangeOverflow:!1,rangeUnderflow:!1,stepMismatch:!1,tooLong:!1,tooShort:!1,typeMismatch:!1,valid:!0,valueMissing:!1});Object.freeze(yt(B({},rt),{valid:!1,valueMissing:!0}));Object.freeze(yt(B({},rt),{valid:!1,customError:!0}));var ke=y`
   :host {
     display: inline-block;
     position: relative;
@@ -1056,10 +1056,10 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
   :host([data-sl-button-group__button][checked]) {
     z-index: 2;
   }
-`,u=class extends v{constructor(){super(...arguments),this.formControlController=new xe(this,{assumeInteractionOn:["click"]}),this.hasSlotController=new me(this,"[default]","prefix","suffix"),this.localize=new et(this),this.hasFocus=!1,this.invalid=!1,this.title="",this.variant="default",this.size="medium",this.caret=!1,this.disabled=!1,this.loading=!1,this.outline=!1,this.pill=!1,this.circle=!1,this.type="button",this.name="",this.value="",this.href="",this.rel="noreferrer noopener"}get validity(){return this.isButton()?this.button.validity:rt}get validationMessage(){return this.isButton()?this.button.validationMessage:""}firstUpdated(){this.isButton()&&this.formControlController.updateValidity()}handleBlur(){this.hasFocus=!1,this.emit("sl-blur")}handleFocus(){this.hasFocus=!0,this.emit("sl-focus")}handleClick(){this.type==="submit"&&this.formControlController.submit(this),this.type==="reset"&&this.formControlController.reset(this)}handleInvalid(t){this.formControlController.setValidity(!1),this.formControlController.emitInvalidEvent(t)}isButton(){return!this.href}isLink(){return!!this.href}handleDisabledChange(){this.isButton()&&this.formControlController.setValidity(this.disabled)}click(){this.button.click()}focus(t){this.button.focus(t)}blur(){this.button.blur()}checkValidity(){return this.isButton()?this.button.checkValidity():!0}getForm(){return this.formControlController.getForm()}reportValidity(){return this.isButton()?this.button.reportValidity():!0}setCustomValidity(t){this.isButton()&&(this.button.setCustomValidity(t),this.formControlController.updateValidity())}render(){const t=this.isLink(),e=t?F`a`:F`button`;return D`
+`,u=class extends v{constructor(){super(...arguments),this.formControlController=new xe(this,{assumeInteractionOn:["click"]}),this.hasSlotController=new ve(this,"[default]","prefix","suffix"),this.localize=new et(this),this.hasFocus=!1,this.invalid=!1,this.title="",this.variant="default",this.size="medium",this.caret=!1,this.disabled=!1,this.loading=!1,this.outline=!1,this.pill=!1,this.circle=!1,this.type="button",this.name="",this.value="",this.href="",this.rel="noreferrer noopener"}get validity(){return this.isButton()?this.button.validity:rt}get validationMessage(){return this.isButton()?this.button.validationMessage:""}firstUpdated(){this.isButton()&&this.formControlController.updateValidity()}handleBlur(){this.hasFocus=!1,this.emit("sl-blur")}handleFocus(){this.hasFocus=!0,this.emit("sl-focus")}handleClick(){this.type==="submit"&&this.formControlController.submit(this),this.type==="reset"&&this.formControlController.reset(this)}handleInvalid(t){this.formControlController.setValidity(!1),this.formControlController.emitInvalidEvent(t)}isButton(){return!this.href}isLink(){return!!this.href}handleDisabledChange(){this.isButton()&&this.formControlController.setValidity(this.disabled)}click(){this.button.click()}focus(t){this.button.focus(t)}blur(){this.button.blur()}checkValidity(){return this.isButton()?this.button.checkValidity():!0}getForm(){return this.formControlController.getForm()}reportValidity(){return this.isButton()?this.button.reportValidity():!0}setCustomValidity(t){this.isButton()&&(this.button.setCustomValidity(t),this.formControlController.updateValidity())}render(){const t=this.isLink(),e=t?F`a`:F`button`;return D`
       <${e}
         part="base"
-        class=${K({button:!0,"button--default":this.variant==="default","button--primary":this.variant==="primary","button--success":this.variant==="success","button--neutral":this.variant==="neutral","button--warning":this.variant==="warning","button--danger":this.variant==="danger","button--text":this.variant==="text","button--small":this.size==="small","button--medium":this.size==="medium","button--large":this.size==="large","button--caret":this.caret,"button--circle":this.circle,"button--disabled":this.disabled,"button--focused":this.hasFocus,"button--loading":this.loading,"button--standard":!this.outline,"button--outline":this.outline,"button--pill":this.pill,"button--rtl":this.localize.dir()==="rtl","button--has-label":this.hasSlotController.test("[default]"),"button--has-prefix":this.hasSlotController.test("prefix"),"button--has-suffix":this.hasSlotController.test("suffix")})}
+        class=${J({button:!0,"button--default":this.variant==="default","button--primary":this.variant==="primary","button--success":this.variant==="success","button--neutral":this.variant==="neutral","button--warning":this.variant==="warning","button--danger":this.variant==="danger","button--text":this.variant==="text","button--small":this.size==="small","button--medium":this.size==="medium","button--large":this.size==="large","button--caret":this.caret,"button--circle":this.circle,"button--disabled":this.disabled,"button--focused":this.hasFocus,"button--loading":this.loading,"button--standard":!this.outline,"button--outline":this.outline,"button--pill":this.pill,"button--rtl":this.localize.dir()==="rtl","button--has-label":this.hasSlotController.test("[default]"),"button--has-prefix":this.hasSlotController.test("prefix"),"button--has-suffix":this.hasSlotController.test("suffix")})}
         ?disabled=${b(t?void 0:this.disabled)}
         type=${b(t?void 0:this.type)}
         title=${this.title}
@@ -1164,7 +1164,7 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
 							${n<e-1?d`<sl-divider></sl-divider>`:d``}
 						`)}
 				</div>`;case"error":return d`<display-error
-					.headline=${W("Error fetching the notifications")}
+					.headline=${q("Error fetching the notifications")}
 					.error=${t.error}
 				></display-error>`;case"completed":const{unreadGroups:o,readGroups:r}=t.value;return o.length+r.length>0?d`
 							<div class="column" style="flex: 1">
@@ -1179,7 +1179,7 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
 												slot="prefix"
 												.src=${U(Nt)}
 											></sl-icon>
-											${W("Dismiss")}</sl-button
+											${q("Dismiss")}</sl-button
 										>
 									</div>
 
@@ -1198,11 +1198,11 @@ import{s as Tt,a as c,n as At,t as Vt}from"./property.BeJXe4f4.js";import{i as y
 									style="color: grey; height: 64px; width: 48px;"
 								></sl-icon>
 								<span class="placeholder"
-									>${W("You don't have any notifications")}</span
+									>${q("You don't have any notifications")}</span
 								>
 							</div>
-						`}}};C.styles=[Ut,y`
+						`}}};C.styles=[_e,y`
 			sl-icon-button::part(base) {
 				padding: 0 !important;
 			}
-		`];st([vt({context:Dt,subscribe:!0})],C.prototype,"notificationsStore",2);st([vt({context:Rt,subscribe:!0})],C.prototype,"profilesStore",2);C=st([Vt("my-notifications-list")],C);const Ve=Object.freeze(Object.defineProperty({__proto__:null,get MyNotifications(){return C}},Symbol.toStringTag,{value:"Module"}));export{me as H,et as L,K as R,v as S,a as _,xt as a,B as b,E as c,m as d,mt as e,vt as f,ht as g,Ot as h,Ve as i,Ft as j,W as m,Rt as p,S as r,Ut as s,b as t,P as w};
+		`];st([vt({context:Dt,subscribe:!0})],C.prototype,"notificationsStore",2);st([vt({context:Rt,subscribe:!0})],C.prototype,"profilesStore",2);C=st([Vt("my-notifications-list")],C);const Ve=Object.freeze(Object.defineProperty({__proto__:null,get MyNotifications(){return C}},Symbol.toStringTag,{value:"Module"}));export{ve as H,et as L,J as R,m as S,a as _,v as a,yt as b,E as c,B as d,mt as e,vt as f,Ot as g,_e as h,Ve as i,Ft as j,q as m,Rt as p,S as r,ht as s,b as t,P as w};
