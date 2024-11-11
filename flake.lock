@@ -6618,11 +6618,11 @@
         "tnesh-stack": "tnesh-stack_9"
       },
       "locked": {
-        "lastModified": 1731323025,
-        "narHash": "sha256-H/eIZEqenAGADcdgZdq3YvnX4a/4dyop5Jl2SY8Z7IU=",
+        "lastModified": 1731326153,
+        "narHash": "sha256-OZS/EMYHknayeYZg4Z2hUPfbQGVMT1qADvmgCK4igLQ=",
         "owner": "darksoil-studio",
         "repo": "profiles-zome",
-        "rev": "41cff3103d708b343266d85a78a8e82df2a2cc22",
+        "rev": "71db21efbd4478b01d1400260d5fe0a38af41a7e",
         "type": "github"
       },
       "original": {
