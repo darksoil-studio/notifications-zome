@@ -22,7 +22,7 @@ pub fn init(_: ()) -> ExternResult<InitCallbackResult> {
 	};
 	create_cap_grant(cap_grant)?;
 
-	schedule("scheduled_synchronize_with_other_agents_for_my_profile")?;
+	schedule("scheduled_synchronize_with_linked_devices")?;
 
 	Ok(InitCallbackResult::Pass)
 }
