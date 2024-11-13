@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["synchronize_with_other_agents_for_my_profile"]};
+window.SIDEBAR_ITEMS = {"fn":["synchronize_with_linked_devices"]};
