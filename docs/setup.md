@@ -33,5 +33,5 @@ And then they are ready be used inside the `<notifications-context>` just like a
 
 # Example
 
-You can see a full working example of the UI working in [here](https://github.com/darksoil-studio/notifications/blob/main/ui/demo/index.html).
+You can see a full working example of the UI working in [here](https://github.com/darksoil-studio/notifications-zome/blob/main/ui/demo/index.html).
 
