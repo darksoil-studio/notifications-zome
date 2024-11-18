@@ -18,8 +18,8 @@
           example = self'.packages.example;
 
           linked_devices_integrity =
-            inputs'.linked-devices.packages.linked_devices_integrity;
-          linked_devices = inputs'.linked-devices.packages.linked_devices;
+            inputs'.linked-devices-zome.packages.linked_devices_integrity;
+          linked_devices = inputs'.linked-devices-zome.packages.linked_devices;
         };
       };
   };

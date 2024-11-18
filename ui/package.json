@@ -29,9 +29,9 @@
     "./locales/*": "./locales/*"
   },
   "dependencies": {
-    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices#39dc726ad15f8033ae5ae74cbd1fac894b9e6eeb&path:ui",
-    "@darksoil-studio/profiles-zome": "github:darksoil-studio/profiles-zome#7be81aa520ece699b5c3c4421e5db110d9bb01e4&path:ui",
-    "@tnesh-stack/elements": "^0.300.0",
+    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#0d612dcfeb73830e387461bab6f985a06f75927d&path:ui",
+    "@darksoil-studio/profiles-zome": "github:darksoil-studio/profiles-zome#0c2fc314eb43a46d505175e039e86420436ae266&path:ui",
+    "@tnesh-stack/elements": "^0.300.5",
     "@tnesh-stack/signals": "^0.300.0",
     "@tnesh-stack/utils": "^0.300.0",
     "@holochain/client": "^0.17.1",

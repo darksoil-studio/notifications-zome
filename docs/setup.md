@@ -3,7 +3,7 @@
 > [!WARNING]
 > This guide assumes that you have scaffolded a hApp with the [TNESH stack template](https://darksoil.studio/tnesh-stack/scaffolding-a-happ).
 
-1. Run this to scaffold this zome in your hApp:
+Run this to scaffold this zome in your hApp:
 
 ```bash
 nix run github:darksoil-studio/notifications-zome#scaffold
@@ -12,107 +12,26 @@ nix run github:darksoil-studio/notifications-zome#scaffold
 This will do the following:
   - Add the flake input for that repository in your `flake.nix`.
   - Add the appropriate zome packages to the `dna.nix` that you select.
-  - Add the UI package for that zome in the local NPM package that you select.
-
-Now you only need to integrate the zome's frontend in your web-app.
-
-2. Connect to Holochain with the `AppClient`, and create the `NotificationsStore` with it:
-
-```js
-import { NotificationsStore, NotificationsClient } from "@darksoil-studio/notifications-zome";
-import { AppWebsocket } from "@holochain/client";
-
-async function setupNotificationsStore() {
-  // TODO: change "MY_APP_NAME" for the roleId that you can find in your "happ.yaml"
-  const client = await AppWebsocket.connect('<MY_APP_NAME>')
-
-  // TODO: change "MY_CELL_ROLE" for the roleId that you can find in your "happ.yaml"
-  return new NotificationsStore(new NotificationsClient(client, '<MY_CELL_ROLE>'));
-}
-```
-
-3. Import the `<notifications-context>` element and add it to your html **wrapping the whole section of your page in which you are going to be placing** the other elements from `@darksoil-studio/notifications-zome`:
-
-```js
-// This can be placed in the index.js, at the top level of your web-app.
-import "@darksoil-studio/notifications-zome/elements/notifications-context.js";
-```
-
-And then add the `<notifications-context>` element in your html:
-
-```html
-<notifications-context>
-  <!-- Add here other elements from @darksoil-studio/notifications-zome -->
-</notifications-context>
-```
-
-4. Attach the `notificationsStore` to the `<notifications-context>` element:
-
-- Go to [this page](https://darksoil.studio/tnesh-stack/integrating-with-frameworks/), select the framework you are using, and follow its example.
-
-You need to set the `store` property of it to your already instantiated `NotificationsStore` object:
-
-- If you **are using some JS framework**:
-
-::: code-group
-```html [React]
-<notifications-context store={ notificationsStore}><!-- ... --></notifications-context>
-```
-
-```html [Angular]
-<notifications-context [store]="notificationsStore"><!-- ... --></notifications-context>
-```
-
-```html [Vue]
-<notifications-context :store="notificationsStore"><!-- ... --></notifications-context>
-```
-
-```html [Svelte]
-<notifications-context store={ notificationsStore}><!-- ... --></notifications-context>
-```
-
-```html [Lit]
-<notifications-context .store=${ notificationsStore}><!-- ... --></notifications-context>
-```
-:::
-
-OR
-
-- If you **are not using any framework**:
-
-```js
-const contextElement = document.querySelector("notifications-context");
-contextElement.store = store;
-```
+  - Add the UI package for @darksoil-studio/notifications-zome as a dependency of your UI package.
+  - Add the `<notifications-context>` element at the top level of your application.
 
 > [!NOTE]
 > You can read more about the context pattern [here](https://darksoil.studio/tnesh-stack/guides/custom-elements#context).
 
-5. [Choose which elements you need](./elements/my-notifications-list.md) and import them like this:
+That's it! You have now integrated the `notifications` coordinator and integrity zomes and their UI into your app!
+
+Now, [choose which elements you need](/elements/my-notifications-icon-button.md) and import them like this:
 
 ```js
-import "@darksoil-studio/notifications-zome/dist/elements/notifications-context.js";
+import "@darksoil-studio/notifications-zome/dist/elements/my-notifications-icon-button.js";
 ```
 
-And then they are ready be used inside the `<notifications-context>` just like any other HTML tag.
+And then they are ready be used inside the `<notifications-context>` just like any other HTML tag. 
 
-This will define all the elements from this module in the global `CustomElementsRegistry`. You can read more about Custom Elements [here](https://developers.google.com/web/fundamentals/web-components/customelements).
-
-6. Add your preferred shoelace theme in your `<head>` tag:
-
-```html
-  <head>
-    <link rel="stylesheet" href="path/to/shoelace/dist/themes/light.css" />
-  </head>
-```
-
-You can read more about how to initialize the shoelace theme [here](https://shoelace.style/getting-started/themes?id=activating-themes).
-
----
-
-That's it! You have now integrated both the backend and the frontend for the profiles module.
+> [!NOTE]
+> Importing the elements from the UI package will define them in the global `CustomElementsRegistry`, which makes them available to be used like any normal HTML tag. You can read more about custom elements [here](https://darksoil.studio/tnesh-stack/guides/custom-elements).
 
 # Example
 
-You can see a full working example of the UI working in [here](https://github.com/darksoil-studio/notifications-zome/blob/main/ui/demo/index.html).
+You can see a full working example of the UI working in [here](https://github.com/darksoil-studio/notifications/blob/main/ui/demo/index.html).
 
