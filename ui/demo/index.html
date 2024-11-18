@@ -77,35 +77,32 @@
 					this.profilesStore = new ProfilesStore(
 						new ProfilesClient(appClient, 'notifications_test'),
 					);
-					this._notificationsStore = new NotificationsStore(
-						new NotificationsClient(appClient, 'notifications_test'),
-						//	{
-						//		types: {
-						//			type1: {
-						//				name: 'Hii',
-						//				description: 'something',
-						//				title(group) {
-						//					return new Signal.State({
-						//						status: 'completed',
-						//						value: group,
-						//					});
-						//				},
-						//				onClick: group => console.log('clicked', group),
-						//				contents: n => {
-						//					const i = decode(n.entry.content);
+					//	{
+					//		types: {
+					//			type1: {
+					//				name: 'Hii',
+					//				description: 'something',
+					//				title(group) {
+					//					return new Signal.State({
+					//						status: 'completed',
+					//						value: group,
+					//					});
+					//				},
+					//				onClick: group => console.log('clicked', group),
+					//				contents: n => {
+					//					const i = decode(n.entry.content);
 
-						//					return new Signal.State({
-						//						status: 'completed',
-						//						value: {
-						//							iconSrc: wrapPathInSvg(mdiBell),
-						//							body: i.body,
-						//						},
-						//					});
-						//				},
-						//			},
-						//		},
-						//	},
-					);
+					//					return new Signal.State({
+					//						status: 'completed',
+					//						value: {
+					//							iconSrc: wrapPathInSvg(mdiBell),
+					//							body: i.body,
+					//						},
+					//					});
+					//				},
+					//			},
+					//		},
+					//	},
 					const interval = setInterval(async () => {
 						const allProfilesLinks =
 							await this.profilesStore.client.getAllProfiles();
@@ -199,11 +196,13 @@
 						<app-client-context .client=${this._client}>
 							<linked-devices-context role="notifications_test">
 								<profiles-context .store=${this.profilesStore}>
-									<div class="fill row" style="width: 100vw; height: 100%;">
-										<profile-prompt style="flex: 1;">
-											${this.renderContent()}
-										</profile-prompt>
-									</div>
+									<notifications-context role="notifications_test">
+										<div class="fill row" style="width: 100vw; height: 100%;">
+											<profile-prompt style="flex: 1;">
+												${this.renderContent()}
+											</profile-prompt>
+										</div>
+									</notifications-context>
 								</profiles-context>
 							</linked-devices-context>
 						</app-client-context>
