@@ -1,4 +1,4 @@
-import{s as d,a as p}from"./property.DbKnSzgE.js";/**
+import{s as d,n as p}from"./property.-OmOMAsO.js";/**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -6,7 +6,7 @@ import{s as d,a as p}from"./property.DbKnSzgE.js";/**
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */let x=class extends Event{constructor(t){super("context-provider",{bubbles:!0,composed:!0}),this.context=t}};class u extends b{constructor(t,e,i){var o,n;super(e.context!==void 0?e.initialValue:i),this.onContextRequest=s=>{const r=s.composedPath()[0];s.context===this.context&&r!==this.host&&(s.stopPropagation(),this.addCallback(s.callback,r,s.subscribe))},this.onProviderRequest=s=>{const r=s.composedPath()[0];if(s.context!==this.context||r===this.host)return;const h=new Set;for(const[a,{consumerHost:l}]of this.subscriptions)h.has(a)||(h.add(a),l.dispatchEvent(new d(this.context,a,!0)));s.stopPropagation()},this.host=t,e.context!==void 0?this.context=e.context:this.context=e,this.attachListeners(),(n=(o=this.host).addController)==null||n.call(o,this)}attachListeners(){this.host.addEventListener("context-request",this.onContextRequest),this.host.addEventListener("context-provider",this.onProviderRequest)}hostConnected(){this.host.dispatchEvent(new x(this.context))}}/**
+ */let x=class extends Event{constructor(t){super("context-provider",{bubbles:!0,composed:!0}),this.context=t}};class u extends b{constructor(t,e,i){var o,n;super(e.context!==void 0?e.initialValue:i),this.onContextRequest=s=>{const r=s.composedPath()[0];s.context===this.context&&r!==this.host&&(s.stopPropagation(),this.addCallback(s.callback,r,s.subscribe))},this.onProviderRequest=s=>{const r=s.composedPath()[0];if(s.context!==this.context||r===this.host)return;const a=new Set;for(const[h,{consumerHost:l}]of this.subscriptions)a.has(h)||(a.add(h),l.dispatchEvent(new d(this.context,h,!0)));s.stopPropagation()},this.host=t,e.context!==void 0?this.context=e.context:this.context=e,this.attachListeners(),(n=(o=this.host).addController)==null||n.call(o,this)}attachListeners(){this.host.addEventListener("context-request",this.onContextRequest),this.host.addEventListener("context-provider",this.onProviderRequest)}hostConnected(){this.host.dispatchEvent(new x(this.context))}}/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
