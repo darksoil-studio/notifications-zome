@@ -65,7 +65,9 @@
                 --remote-zome-git-url github:darksoil-studio/notifications-zome \
                 --remote-npm-package-name @darksoil-studio/notifications-zome \
                 --remote-npm-package-path ui \
-                --remote-zome-git-branch main-0.3"
+                --remote-zome-git-branch main-0.3 \
+                --context-element notifications-context \
+                --context-element-import @darksoil-studio/notifications-zome/dist/elements/notifications-context.js"
           '';
         };
       };
