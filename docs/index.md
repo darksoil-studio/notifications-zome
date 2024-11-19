@@ -30,6 +30,7 @@ features:
     details: Call `NotificationsClient.sendNotification(recipient, notification)` to send immediate in-app notifications.
   - title: Plug-and-play UI elements
     details: Use `<my-notifications-icon-button>` to include the desktop in-app notifications experience, read and dismiss notifications.
+    link: "/elements/my-notifications-icon-button.md"
   - title: Compatible with mobile push-notifications
     details: Notification management is done in the coordinator zome to enable compatibility with push-notifications.
 ---

@@ -10,13 +10,10 @@ nix run github:darksoil-studio/notifications-zome#scaffold
 ```
 
 This will do the following:
-  - Add the flake input for that repository in your `flake.nix`.
-  - Add the appropriate zome packages to the `dna.nix` that you select.
-  - Add the UI package for @darksoil-studio/notifications-zome as a dependency of your UI package.
+  - Add the `github:darksoil-studio/notifications-zome` flake input to your `flake.nix`.
+  - Add the `notifications` coordinator and zome packages to the `dna.nix` that you select.
+  - Add the UI package for `@darksoil-studio/notifications-zome` as a dependency of your UI package.
   - Add the `<notifications-context>` element at the top level of your application.
-
-> [!NOTE]
-> You can read more about the context pattern [here](https://darksoil.studio/tnesh-stack/guides/custom-elements#context).
 
 That's it! You have now integrated the `notifications` coordinator and integrity zomes and their UI into your app!
 
