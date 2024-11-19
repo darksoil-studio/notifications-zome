@@ -19,7 +19,7 @@ export default {
 		},
 	},
 	base: '/notifications-zome',
-	title: '@darksoil-studio/notifications-zome',
+	title: 'Notifications Zome',
 	description: 'Notifications zome for holochain apps',
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
