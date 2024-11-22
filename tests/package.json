@@ -10,7 +10,7 @@
     "@holochain/tryorama": "^v0.16.0",
     "@tnesh-stack/signals": "^0.300.0",
     "@tnesh-stack/utils": "^0.300.0",
-    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#3683d89b1e9c571d1e0775db89fda3d31c6186ad&path:ui",
+    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#5bf7466cc8091d1a69b3c4be07a2f2367c1eb65e&path:ui",
     "typescript": "^5.4.5",
     "vitest": "^1.4.0"
   },
