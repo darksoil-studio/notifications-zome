@@ -6,11 +6,11 @@
   },
   "dependencies": {
     "@msgpack/msgpack": "^2.7.0",
-    "@holochain/client": "^0.17.1",
-    "@holochain/tryorama": "^v0.16.0",
-    "@tnesh-stack/signals": "^0.300.0",
-    "@tnesh-stack/utils": "^0.300.0",
-    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices#055871e8a663402b169691b5b40cdc90751c0628&path:ui",
+    "@holochain/client": "^0.18.0-rc",
+    "@holochain/tryorama": "^0.17.0-dev",
+    "@tnesh-stack/signals": "^0.400.0-rc",
+    "@tnesh-stack/utils": "^0.400.0-rc",
+    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices#c8b08f5da81d030e846dcb7afa8e244d3c0a6d50&path:ui",
     "typescript": "^5.4.5",
     "vitest": "^1.4.0"
   },

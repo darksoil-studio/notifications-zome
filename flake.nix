@@ -3,14 +3,14 @@
 
   inputs = {
     nixpkgs.follows = "holonix/nixpkgs";
-    holonix.url = "github:holochain/holonix/main-0.3";
+    holonix.url = "github:holochain/holonix/main-0.4";
 
-    tnesh-stack.url = "github:darksoil-studio/tnesh-stack/main-0.3";
-    playground.url = "github:darksoil-studio/holochain-playground/main-0.3";
-    p2p-shipyard.url = "github:darksoil-studio/p2p-shipyard/main-0.3";
+    tnesh-stack.url = "github:darksoil-studio/tnesh-stack/main-0.4";
+    playground.url = "github:darksoil-studio/holochain-playground/main-0.4";
+    p2p-shipyard.url = "github:darksoil-studio/p2p-shipyard/main-0.4";
 
-    linked-devices.url = "github:darksoil-studio/linked-devices/main-0.3";
-    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.3";
+    linked-devices.url = "github:darksoil-studio/linked-devices/main-0.4";
+    profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.4";
   };
 
   nixConfig = {
@@ -46,6 +46,10 @@
           ];
 
           packages = [
+            (inputs'.holonix.packages.holochain.override {
+              cargoExtraArgs =
+                " --features unstable-functions,unstable-dpki,unstable-countersigning";
+            })
             inputs'.tnesh-stack.packages.hc-scaffold-zome
             inputs'.playground.packages.hc-playground
             inputs'.p2p-shipyard.packages.hc-pilot
@@ -64,7 +68,7 @@
                 --remote-zome-git-url github:darksoil-studio/notifications-zome \
                 --remote-npm-package-name @darksoil-studio/notifications-zome \
                 --remote-npm-package-path ui \
-                --remote-zome-git-branch main-0.3"
+                --remote-zome-git-branch main-0.4"
           '';
         };
       };

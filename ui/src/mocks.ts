@@ -18,7 +18,13 @@ import {
 
 export class NotificationsZomeMock extends ZomeMock implements AppClient {
 	constructor(myPubKey?: AgentPubKey) {
-		super('notifications_test', 'notifications', myPubKey, 100);
+		super(
+			'notifications_test',
+			'notifications',
+			'notificationstests',
+			myPubKey,
+			100,
+		);
 	}
 	/** Notification */
 	notifications = new HoloHashMap<EntryHash, Notification>();
