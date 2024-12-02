@@ -652,7 +652,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "android-nixpkgs",
           "nixpkgs"
@@ -676,7 +676,7 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "android-nixpkgs",
@@ -4712,16 +4712,16 @@
         "type": "github"
       }
     },
-    "linked-devices": {
+    "linked-devices-zome": {
       "inputs": {
         "flake-parts": [
-          "linked-devices",
+          "linked-devices-zome",
           "holonix",
           "flake-parts"
         ],
         "holonix": "holonix_2",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "holonix",
           "nixpkgs"
         ],
@@ -4744,7 +4744,7 @@
         "type": "github"
       }
     },
-    "linked-devices-zome": {
+    "linked-devices-zome_2": {
       "inputs": {
         "flake-parts": [
           "profiles-zome",
@@ -5806,20 +5806,20 @@
       "inputs": {
         "android-nixpkgs": "android-nixpkgs",
         "crane": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "holonix",
           "crane"
         ],
         "holonix": "holonix_3",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "tnesh-stack",
           "nixpkgs"
         ],
         "rust-overlay": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "holonix",
           "rust-overlay"
@@ -5846,7 +5846,7 @@
       "inputs": {
         "android-nixpkgs": "android-nixpkgs_2",
         "crane": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "holonix",
@@ -5854,14 +5854,14 @@
         ],
         "holonix": "holonix_6",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "tnesh-stack",
           "nixpkgs"
         ],
         "rust-overlay": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "holonix",
@@ -6138,7 +6138,7 @@
       "inputs": {
         "holonix": "holonix_5",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "holonix",
           "nixpkgs"
@@ -6501,7 +6501,7 @@
     "profiles-zome": {
       "inputs": {
         "holonix": "holonix_16",
-        "linked-devices-zome": "linked-devices-zome",
+        "linked-devices-zome": "linked-devices-zome_2",
         "nixpkgs": [
           "profiles-zome",
           "holonix",
@@ -6529,7 +6529,7 @@
     "root": {
       "inputs": {
         "holonix": "holonix",
-        "linked-devices": "linked-devices",
+        "linked-devices-zome": "linked-devices-zome",
         "nixpkgs": [
           "holonix",
           "nixpkgs"
@@ -6795,7 +6795,7 @@
     "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "holonix",
           "nixpkgs"
         ]
@@ -7060,7 +7060,7 @@
     "rust-overlay_3": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "holonix",
           "nixpkgs"
@@ -7152,7 +7152,7 @@
     "rust-overlay_4": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "tnesh-stack",
           "holonix",
@@ -7176,7 +7176,7 @@
     "rust-overlay_5": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "holonix",
           "nixpkgs"
@@ -7199,7 +7199,7 @@
     "rust-overlay_6": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "holonix",
@@ -7223,7 +7223,7 @@
     "rust-overlay_7": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "tnesh-stack",
@@ -7248,7 +7248,7 @@
     "rust-overlay_8": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "tnesh-stack",
           "holonix",
@@ -7272,7 +7272,7 @@
     "rust-overlay_9": {
       "inputs": {
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "tnesh-stack",
           "holonix",
           "nixpkgs"
@@ -7535,7 +7535,7 @@
     "tnesh-stack": {
       "inputs": {
         "crane": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "tnesh-stack",
           "holonix",
@@ -7543,7 +7543,7 @@
         ],
         "holonix": "holonix_4",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "tnesh-stack",
           "holonix",
@@ -7551,7 +7551,7 @@
         ],
         "pnpmnixpkgs": "pnpmnixpkgs",
         "rust-overlay": [
-          "linked-devices",
+          "linked-devices-zome",
           "p2p-shipyard",
           "tnesh-stack",
           "holonix",
@@ -7860,7 +7860,7 @@
     "tnesh-stack_2": {
       "inputs": {
         "crane": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "tnesh-stack",
@@ -7869,7 +7869,7 @@
         ],
         "holonix": "holonix_7",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "tnesh-stack",
@@ -7878,7 +7878,7 @@
         ],
         "pnpmnixpkgs": "pnpmnixpkgs_2",
         "rust-overlay": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "p2p-shipyard",
           "tnesh-stack",
@@ -7904,7 +7904,7 @@
     "tnesh-stack_3": {
       "inputs": {
         "crane": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "tnesh-stack",
           "holonix",
@@ -7912,7 +7912,7 @@
         ],
         "holonix": "holonix_8",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "tnesh-stack",
           "holonix",
@@ -7920,7 +7920,7 @@
         ],
         "pnpmnixpkgs": "pnpmnixpkgs_3",
         "rust-overlay": [
-          "linked-devices",
+          "linked-devices-zome",
           "playground",
           "tnesh-stack",
           "holonix",
@@ -7945,21 +7945,21 @@
     "tnesh-stack_4": {
       "inputs": {
         "crane": [
-          "linked-devices",
+          "linked-devices-zome",
           "tnesh-stack",
           "holonix",
           "crane"
         ],
         "holonix": "holonix_9",
         "nixpkgs": [
-          "linked-devices",
+          "linked-devices-zome",
           "tnesh-stack",
           "holonix",
           "nixpkgs"
         ],
         "pnpmnixpkgs": "pnpmnixpkgs_4",
         "rust-overlay": [
-          "linked-devices",
+          "linked-devices-zome",
           "tnesh-stack",
           "holonix",
           "rust-overlay"
