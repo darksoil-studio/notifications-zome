@@ -4730,17 +4730,17 @@
         "tnesh-stack": "tnesh-stack_4"
       },
       "locked": {
-        "lastModified": 1733140386,
-        "narHash": "sha256-FfN6T+l+3uo7rw53dn6rCoMtrd7pvohJnf6my+rZWIc=",
+        "lastModified": 1733150609,
+        "narHash": "sha256-Wb3hTLbhv/x+SzBBRVC4VMGaCvkX5/vErqvIiWtH2cY=",
         "owner": "darksoil-studio",
-        "repo": "linked-devices",
-        "rev": "c8b08f5da81d030e846dcb7afa8e244d3c0a6d50",
+        "repo": "linked-devices-zome",
+        "rev": "7801fc92421fde6a8f9ac2899f2202a29f62e327",
         "type": "github"
       },
       "original": {
         "owner": "darksoil-studio",
         "ref": "main-0.4",
-        "repo": "linked-devices",
+        "repo": "linked-devices-zome",
         "type": "github"
       }
     },
