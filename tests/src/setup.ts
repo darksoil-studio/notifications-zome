@@ -12,6 +12,8 @@ import { NotificationsStore } from '../../ui/src/notifications-store.js';
 import { NotificationsConfig } from '../../ui/src/types.js';
 
 export async function setup(scenario: Scenario) {
+	scenario.dpkiNetworkSeed = undefined;
+
 	const testHappUrl =
 		dirname(fileURLToPath(import.meta.url)) +
 		'/../../workdir/notifications_test-debug.happ';
