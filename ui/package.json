@@ -29,7 +29,7 @@
     "./locales/*": "./locales/*"
   },
   "dependencies": {
-    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices#c8b08f5da81d030e846dcb7afa8e244d3c0a6d50&path:ui",
+    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#7801fc92421fde6a8f9ac2899f2202a29f62e327&path:ui",
     "@darksoil-studio/profiles-zome": "github:darksoil-studio/profiles-zome#b39f276988280a56ec9e3ed6f01a1a9c245d35de&path:ui",
     "@tnesh-stack/elements": "^0.400.0-rc",
     "@tnesh-stack/signals": "^0.400.0-rc",
