@@ -890,7 +890,7 @@ checksum = "09d6582e104315a817dff97f75133544b2e094ee22447d2acf4a74e189ba06fc"
 [[package]]
 name = "linked_devices_types"
 version = "0.1.0"
-source = "git+https://github.com/darksoil-studio/linked-devices-zome?branch=main-0.4#c8b08f5da81d030e846dcb7afa8e244d3c0a6d50"
+source = "git+https://github.com/darksoil-studio/linked-devices-zome?branch=main-0.4#7801fc92421fde6a8f9ac2899f2202a29f62e327"
 dependencies = [
  "hdi",
  "serde",

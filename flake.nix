@@ -61,14 +61,20 @@
           paths = [ inputs'.tnesh-stack.packages.scaffold-remote-zome ];
           buildInputs = [ pkgs.makeWrapper ];
           postBuild = ''
-            wrapProgram $out/bin/scaffold-remote-zome \
-              --add-flags "notifications-zome \
-                --integrity-zome-name notifications_integrity \
-                --coordinator-zome-name notifications \
-                --remote-zome-git-url github:darksoil-studio/notifications-zome \
-                --remote-npm-package-name @darksoil-studio/notifications-zome \
-                --remote-npm-package-path ui \
-                --remote-zome-git-branch main-0.4"
+                        wrapProgram $out/bin/scaffold-remote-zome \
+                          --add-flags "notifications-zome \
+                            --integrity-zome-name notifications_integrity \
+                            --coordinator-zome-name notifications \
+                            --remote-zome-git-url github:darksoil-studio/notifications-zome \
+                            --remote-npm-package-name @darksoil-studio/notifications-zome \
+                            --remote-npm-package-path ui \
+            <<<<<<< HEAD
+                            --remote-zome-git-branch main-0.4"
+            =======
+                            --remote-zome-git-branch main-0.3 \
+                            --context-element notifications-context \
+                            --context-element-import @darksoil-studio/notifications-zome/dist/elements/notifications-context.js"
+            >>>>>>> main
           '';
         };
       };

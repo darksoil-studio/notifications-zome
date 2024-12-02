@@ -6,7 +6,7 @@ import {
 	encodeHashToBase64,
 } from '@holochain/client';
 import { mdiEarth } from '@mdi/js';
-import { wrapPathInSvg } from '@tnesh-stack/elements';
+import { wrapPathInSvg } from '@tnesh-stack/elements/dist/icon.js';
 import { HashType, HoloHashMap, ZomeMock, hash } from '@tnesh-stack/utils';
 
 import {

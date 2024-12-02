@@ -52,8 +52,6 @@ Here is an interactive demo of the element:
 
 <script setup>
 import { onMounted } from "vue";
-import { ProfilesClient, ProfilesStore } from '@darksoil-studio/profiles-zome';
-import { demoProfiles, ProfilesZomeMock } from '@darksoil-studio/profiles-zome/dist/mocks.js';
 import { decodeHashFromBase64 } from '@holochain/client';
 import { render, html } from "lit";
 import { wrapPathInSvg } from '@tnesh-stack/elements/dist/icon.js'
@@ -74,32 +72,20 @@ onMounted(async () => {
   if (!customElements.get('notifications-context')) await import('../../ui/src/elements/notifications-context.ts');
   if (!customElements.get('my-notifications-list')) await import('../../ui/src/elements/my-notifications-list.ts');
 
-  const profiles = await demoProfiles();
-
-  const profilesMock = new ProfilesZomeMock(
-    profiles,
-    Array.from(profiles.keys())[0]
-  );
-  const profilesStore = new ProfilesStore(new ProfilesClient(profilesMock, "notifications_test"));
-
-	const myProfile = await toPromise(profilesStore.myProfile);
-
   const mock = new NotificationsZomeMock();
   const client = new NotificationsClient(mock, "notifications_test");
 
-  const record = await client.sendNotification(myProfile.profileHash, 'example', 'type1', 'group1', {
+  const record = await client.sendNotification(mock.myPubKey, 'example', 'type1', 'group1', {
 		Hello: 'world!'
 	});
 
   const store = new NotificationsStore(client);
   
   render(html`
-    <profiles-context .store=${profilesStore}>
-      <notifications-context .store=${store}>
-        <api-demo src="custom-elements.json" only="my-notifications-list" exclude-knobs="store">
-        </api-demo>
-      </notifications-context>
-    </profiles-context>
+    <notifications-context .store=${store}>
+      <api-demo src="custom-elements.json" only="my-notifications-list" exclude-knobs="store">
+      </api-demo>
+    </notifications-context>
   `, document.querySelector('element-demo'))
   })
 

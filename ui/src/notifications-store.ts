@@ -15,10 +15,7 @@ import {
 } from './types.js';
 
 export class NotificationsStore {
-	constructor(
-		public client: NotificationsClient,
-		// public notificationsConfig: NotificationsConfig,
-	) {}
+	constructor(public client: NotificationsClient) {}
 
 	/** Notifications */
 	private buildQueryNotificationsWithStatusSignal(
