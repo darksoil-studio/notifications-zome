@@ -2,9 +2,8 @@ import { LinkedDevicesStore } from '@darksoil-studio/linked-devices-zome';
 import { decodeHashFromBase64 } from '@holochain/client';
 import { dhtSync, pause, runScenario } from '@holochain/tryorama';
 import { toPromise } from '@tnesh-stack/signals';
-import { assert, expect, test } from 'vitest';
+import { assert, test } from 'vitest';
 
-import { Notification } from '../../ui/src/types.js';
 import { setup } from './setup.js';
 
 test('notifications and their status get synchronized across devices for the same profile', async () => {
@@ -160,8 +159,14 @@ async function linkDevices(
 	const store1Passcode = [1, 3, 7, 2];
 	const store2Passcode = [9, 3, 8, 4];
 
-	await store1.client.prepareLinkDevices(store1Passcode);
-	await store2.client.prepareLinkDevices(store2Passcode);
+	await store1.client.prepareLinkDevicesRequestor(
+		store2.client.client.myPubKey,
+		store1Passcode,
+	);
+	await store2.client.prepareLinkDevicesRecipient(
+		store1.client.client.myPubKey,
+		store2Passcode,
+	);
 
 	await store1.client.requestLinkDevices(
 		store2.client.client.myPubKey,
