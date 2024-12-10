@@ -29,8 +29,8 @@
     "./locales/*": "./locales/*"
   },
   "dependencies": {
-    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#19a5184e51f61e6914972e3a605560b5d1019005&path:ui",
-    "@darksoil-studio/profiles-zome": "github:darksoil-studio/profiles-zome#904311fdae9e783ad464c1ba378b7ed6c0c07a9b&path:ui",
+    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#5eb4af940554974d61c65b90636999fcd0b54662&path:ui",
+    "@darksoil-studio/profiles-zome": "github:darksoil-studio/profiles-zome#8e608fd6e094c4674631e79a0fba8276b93116dd&path:ui",
     "@tnesh-stack/elements": "^0.400.0-rc",
     "@tnesh-stack/signals": "^0.400.0-rc",
     "@tnesh-stack/utils": "^0.400.0-rc",
