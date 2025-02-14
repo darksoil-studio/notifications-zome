@@ -3,12 +3,12 @@ on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
   push: 
-    branches: [ main, main-0.4 ]
+    branches: [ main, 'main-**' ]
   pull_request:
-    branches: [ main, main-0.4 ]
+    branches: [ main, 'main-**' ]
 
 jobs:
-  testbuild:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
