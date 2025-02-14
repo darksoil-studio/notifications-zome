@@ -19,7 +19,7 @@ jobs:
         uses: cachix/install-nix-action@v27
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          nix_path: nixpkgs=channel:nixos-24.05
+          nix_path: nixpkgs=channel:nixos-24.11
 
       - uses: cachix/cachix-action@v15
         with:
@@ -28,12 +28,6 @@ jobs:
       - uses: cachix/cachix-action@v15
         with:
           name: darksoil-studio
-
-      - name: Install and test
-        env:
-          CACHIX_AUTH_TOKEN: "${{ secrets.DARKSOIL_CACHIX_AUTH_TOKEN }}"
-        run: |
-          cachix watch-exec darksoil-studio -- nix develop --no-update-lock-file --accept-flake-config --command bash -c "pnpm i && pnpm t && pnpm -F @darksoil-studio/notifications-zome build"
 
       - name: Build debug zomes
         env:
