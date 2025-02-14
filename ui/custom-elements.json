@@ -18,7 +18,7 @@
           "type": {
             "text": "array"
           },
-          "default": "[\n  ,\n]",
+          "default": "[ , ]",
           "description": "The other locale codes that this application is localized into. Sorted\nlexicographically."
         },
         {
@@ -27,7 +27,7 @@
           "type": {
             "text": "array"
           },
-          "default": "[\n  `en`,\n]",
+          "default": "[ `en`, ]",
           "description": "All valid project locale codes. Sorted lexicographically."
         }
       ],
@@ -135,7 +135,7 @@
             {
               "kind": "field",
               "name": "notificationsStatusChanges",
-              "default": "new HoloHashMap<\n\t\tEntryHash,\n\t\tNotificationsStatusChanges\n\t>()"
+              "default": "new HoloHashMap< EntryHash, NotificationsStatusChanges >()"
             },
             {
               "kind": "method",
@@ -388,7 +388,7 @@
               "kind": "field",
               "name": "_notificationContents",
               "privacy": "private",
-              "default": "new HoloHashMap<\n\t\tEntryHash,\n\t\tAsyncSignal<NotificationContents>\n\t>()"
+              "default": "new HoloHashMap< EntryHash, AsyncSignal<NotificationContents> >()"
             },
             {
               "kind": "method",
