@@ -1,15 +1,14 @@
 {
   "name": "@darksoil-studio/notifications-zome",
-  "version": "0.1.0",
+  "version": "0.400.0",
   "scripts": {
     "start": "vite --clearScreen false --port $UI_PORT",
-    "build": "pnpm lint && tsc && pnpm analyze",
+    "build": "pnpm lint && tsc && pnpm localize:build && pnpm analyze",
     "lint": "eslint src && prettier \"src/**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint src --fix && prettier \"src/**/*.ts\" --write --ignore-path .gitignore",
     "localize:extract": "lit-localize extract",
     "localize:build": "lit-localize build",
-    "analyze": "cem analyze --litelement --exclude dist",
-    "prepare": "tsc && pnpm localize:build && pnpm analyze"
+    "analyze": "cem analyze --litelement --exclude dist"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -29,8 +28,8 @@
     "./locales/*": "./locales/*"
   },
   "dependencies": {
-    "@darksoil-studio/linked-devices-zome": "github:darksoil-studio/linked-devices-zome#603a4a6609348c869ce1affd38c43b455722a58e&path:ui",
-    "@darksoil-studio/profiles-zome": "github:darksoil-studio/profiles-zome#e63a9b25b7bd4eac8c2ab413d5c28e4868619142&path:ui",
+    "@darksoil-studio/linked-devices-zome": "0.400.0-rev.75efce06804b842860a6e83b68a91e6e43188206",
+    "@darksoil-studio/profiles-zome": "0.400.0-rev.a195fcc45e2e196e316ed4cec98df051a324e23c",
     "@tnesh-stack/elements": "^0.400.0",
     "@tnesh-stack/signals": "^0.400.0",
     "@tnesh-stack/utils": "^0.400.0",
@@ -43,7 +42,7 @@
     "lit": "^3.0.0"
   },
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.9.4",
+    "@custom-elements-manifest/analyzer": "^0.10.3",
     "@lit/localize-tools": "^0.6.3",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",

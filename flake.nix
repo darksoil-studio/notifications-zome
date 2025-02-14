@@ -47,14 +47,13 @@
           ];
 
           packages = [
-            (inputs'.holonix.packages.holochain.override {
-              cargoExtraArgs = " --features unstable-functions";
-            })
+            inputs'.tnesh-stack.packages.holochain
             inputs'.tnesh-stack.packages.hc-scaffold-zome
             inputs'.playground.packages.hc-playground
             inputs'.p2p-shipyard.packages.hc-pilot
           ];
         };
+        devShells.npm-ci = inputs'.tnesh-stack.devShells.synchronized-pnpm;
 
         packages.scaffold = pkgs.symlinkJoin {
           name = "scaffold-remote-zome";
@@ -67,7 +66,6 @@
                 --coordinator-zome-name notifications \
                 --remote-zome-git-url github:darksoil-studio/notifications-zome \
                 --remote-npm-package-name @darksoil-studio/notifications-zome \
-                --remote-npm-package-path ui \
                 --remote-zome-git-branch main-0.4 \
                 --context-element notifications-context \
                 --context-element-import @darksoil-studio/notifications-zome/dist/elements/notifications-context.js"
