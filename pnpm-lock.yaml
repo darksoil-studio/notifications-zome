@@ -90,8 +90,8 @@ importers:
   tests:
     dependencies:
       '@darksoil-studio/linked-devices-zome':
-        specifier: github:darksoil-studio/linked-devices-zome#603a4a6609348c869ce1affd38c43b455722a58e&path:ui
-        version: https://codeload.github.com/darksoil-studio/linked-devices-zome/tar.gz/603a4a6609348c869ce1affd38c43b455722a58e#path:ui
+        specifier: 0.400.0-rev.75efce06804b842860a6e83b68a91e6e43188206
+        version: 0.400.0-rev.75efce06804b842860a6e83b68a91e6e43188206(@types/react@18.3.10)
       '@holochain/client':
         specifier: ^0.18.0
         version: 0.18.0
@@ -369,10 +369,6 @@ packages:
 
   '@darksoil-studio/linked-devices-zome@0.400.0-rev.75efce06804b842860a6e83b68a91e6e43188206':
     resolution: {integrity: sha512-SRyQAgTWtfn2fEXvsZQCrkaL/nR95obPXsDbJYvNlUcXbsphvL4NEZAjLk0hy/e5XX94ukRkxk+wrDt9HjVX1A==}
-
-  '@darksoil-studio/linked-devices-zome@https://codeload.github.com/darksoil-studio/linked-devices-zome/tar.gz/603a4a6609348c869ce1affd38c43b455722a58e#path:ui':
-    resolution: {path: ui, tarball: https://codeload.github.com/darksoil-studio/linked-devices-zome/tar.gz/603a4a6609348c869ce1affd38c43b455722a58e}
-    version: 0.1.0
 
   '@darksoil-studio/linked-devices-zome@https://codeload.github.com/darksoil-studio/linked-devices-zome/tar.gz/c8b08f5da81d030e846dcb7afa8e244d3c0a6d50#path:ui':
     resolution: {path: ui, tarball: https://codeload.github.com/darksoil-studio/linked-devices-zome/tar.gz/c8b08f5da81d030e846dcb7afa8e244d3c0a6d50}
@@ -3336,25 +3332,6 @@ snapshots:
       kuler: 2.0.0
 
   '@darksoil-studio/linked-devices-zome@0.400.0-rev.75efce06804b842860a6e83b68a91e6e43188206(@types/react@18.3.10)':
-    dependencies:
-      '@holochain/client': 0.18.0
-      '@lit/context': 1.1.2
-      '@lit/localize': 0.12.2
-      '@mdi/js': 7.4.47
-      '@msgpack/msgpack': 2.8.0
-      '@shoelace-style/shoelace': 2.17.1(@types/react@18.3.10)
-      '@tauri-apps/plugin-barcode-scanner': 2.0.0
-      '@tnesh-stack/elements': 0.400.0(@types/react@18.3.10)
-      '@tnesh-stack/signals': 0.400.0
-      '@tnesh-stack/utils': 0.400.0
-      js-base64: 3.7.7
-      lit: 3.2.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - bufferutil
-      - utf-8-validate
-
-  '@darksoil-studio/linked-devices-zome@https://codeload.github.com/darksoil-studio/linked-devices-zome/tar.gz/603a4a6609348c869ce1affd38c43b455722a58e#path:ui':
     dependencies:
       '@holochain/client': 0.18.0
       '@lit/context': 1.1.2
