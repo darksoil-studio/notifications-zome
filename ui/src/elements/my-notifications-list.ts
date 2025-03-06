@@ -1,8 +1,4 @@
 import {
-	ProfilesStore,
-	profilesStoreContext,
-} from '@darksoil-studio/profiles-zome';
-import {
 	ActionHash,
 	Delete,
 	EntryHash,
@@ -56,11 +52,6 @@ export class MyNotifications extends SignalWatcher(LitElement) {
 	 */
 	@consume({ context: notificationsStoreContext, subscribe: true })
 	notificationsStore!: NotificationsStore;
-	/**
-	 * @internal
-	 */
-	@consume({ context: profilesStoreContext, subscribe: true })
-	profilesStore!: ProfilesStore;
 
 	renderNotificationGroup(
 		read: boolean,

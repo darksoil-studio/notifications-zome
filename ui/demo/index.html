@@ -104,12 +104,13 @@
 					//		},
 					//	},
 					const interval = setInterval(async () => {
+						this.requestUpdate();
 						const allProfilesLinks =
 							await this.profilesStore.client.getAllProfiles();
 						const otherAgentLink = allProfilesLinks.find(
 							link =>
 								link.author.toString() !==
-								this._notificationsStore.client.client.myPubKey.toString(),
+								this.profilesStore.client.client.myPubKey.toString(),
 						);
 						if (otherAgentLink) {
 							console.log(otherAgentLink);
@@ -120,18 +121,15 @@
 					}, 1000);
 				}
 
-				renderContent() {
-					if (this.linkAgent)
-						return html`<link-device-recipient
-							@device-linked=${() => {
-								this.linkAgent = false;
-								this.requestUpdate();
-							}}
-						></link-device-recipient>`;
+				get notificationsStore() {
+					return this.shadowRoot?.querySelector('notifications-context')?.store;
+				}
 
+				renderButtons() {
+					if (!this.notificationsStore) return;
 					const result = joinAsync([
-						this._notificationsStore.unreadNotifications.get(),
-						this._notificationsStore.readNotifications.get(),
+						this.notificationsStore.unreadNotifications.get(),
+						this.notificationsStore.readNotifications.get(),
 					]);
 					const undismissedNotifications = [
 						...Array.from(
@@ -145,38 +143,51 @@
 								: [],
 						),
 					];
+
 					return html`
-						<notifications-context .store=${this._notificationsStore}>
+						<sl-button
+							@click=${e => {
+								this.notificationsStore.client.sendNotification(
+									this.peer,
+									'example',
+									'type1',
+									this.shadowRoot.getElementById('group').value,
+									{ body: "what's up?" },
+								);
+							}}
+							>Create notification</sl-button
+						>
+						<sl-button
+							@click=${() =>
+								this.notificationsStore.client.dismissNotifications(
+									undismissedNotifications,
+								)}
+							>Clear all notifications</sl-button
+						>
+						<sl-button
+							@click=${() => {
+								this.linkAgent = true;
+								this.requestUpdate();
+							}}
+							>Link device</sl-button
+						>
+					`;
+				}
+
+				renderContent() {
+					if (this.linkAgent)
+						return html`<link-device-recipient
+							@device-linked=${() => {
+								this.linkAgent = false;
+								this.requestUpdate();
+							}}
+						></link-device-recipient>`;
+
+					return html`
+						<notifications-context role="notifications_test">
 							<my-notifications-icon-button></my-notifications-icon-button>
 							<my-notifications-list></my-notifications-list>
-							<div>
-								<sl-button
-									@click=${e => {
-										this._notificationsStore.client.sendNotification(
-											this.peer,
-											'example',
-											'type1',
-											this.shadowRoot.getElementById('group').value,
-											{ body: "what's up?" },
-										);
-									}}
-									>Create notification</sl-button
-								>
-								<sl-button
-									@click=${() =>
-										this._notificationsStore.client.dismissNotifications(
-											undismissedNotifications,
-										)}
-									>Clear all notifications</sl-button
-								>
-								<sl-button
-									@click=${() => {
-										this.linkAgent = true;
-										this.requestUpdate();
-									}}
-									>Link device</sl-button
-								>
-							</div>
+							<div>${this.renderButtons()}</div>
 							<span>Group</span>
 							<input id="group" type="text" />
 						</notifications-context>
@@ -194,7 +205,7 @@
 
 					return html`
 						<app-client-context .client=${this._client}>
-							<linked-devices-context role="notifications_test">
+							<linked-devices-contexti role="notifications_test">
 								<profiles-context .store=${this.profilesStore}>
 									<notifications-context role="notifications_test">
 										<div class="fill row" style="width: 100vw; height: 100%;">
@@ -204,7 +215,7 @@
 										</div>
 									</notifications-context>
 								</profiles-context>
-							</linked-devices-context>
+							</linked-devices-contexti>
 						</app-client-context>
 					`;
 				}

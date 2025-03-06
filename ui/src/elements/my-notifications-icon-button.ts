@@ -1,8 +1,3 @@
-import {
-	ProfilesStore,
-	profilesStoreContext,
-} from '@darksoil-studio/profiles-zome';
-import '@darksoil-studio/profiles-zome/dist/elements/agent-avatar.js';
 import { decodeHashFromBase64 } from '@holochain/client';
 import { consume } from '@lit/context';
 import { localized, msg } from '@lit/localize';
@@ -35,12 +30,6 @@ export class MyNotificationsIconButton extends SignalWatcher(LitElement) {
 	 */
 	@consume({ context: notificationsStoreContext, subscribe: true })
 	notificationsStore!: NotificationsStore;
-
-	/**
-	 * @internal
-	 */
-	@consume({ context: profilesStoreContext, subscribe: true })
-	profilesStore!: ProfilesStore;
 
 	render() {
 		const result = joinAsync([

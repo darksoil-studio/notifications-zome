@@ -9,8 +9,7 @@
     playground.url = "github:darksoil-studio/holochain-playground/main-0.4";
     p2p-shipyard.url = "github:darksoil-studio/p2p-shipyard/main-0.4";
 
-    linked-devices-zome.url =
-      "github:darksoil-studio/linked-devices-zome/main-0.4";
+    linked-devices-zome.follows = "profiles-zome/linked-devices-zome";
     profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.4";
   };
 
