@@ -90,6 +90,16 @@ export class MyNotifications extends SignalWatcher(LitElement) {
 					if (url && 'location' in window) {
 						(window as any).location.href = url;
 					}
+
+					this.dispatchEvent(
+						new CustomEvent('notification-group-clicked', {
+							bubbles: true,
+							composed: true,
+							detail: {
+								notificationGroup,
+							},
+						}),
+					);
 				}}
 			>
 				${singleNotification

@@ -6,7 +6,7 @@ import { setup } from './setup.js';
 
 test('create notifications, read it, and dismiss it', async () => {
 	await runScenario(async scenario => {
-		const { alice, bob } = await setup(scenario);
+		const [alice, bob] = await setup(scenario);
 
 		// Wait for the created entry to be propagated to the other node.
 		await dhtSync([alice.player, bob.player], alice.player.cells[0].cell_id[0]);
@@ -117,7 +117,7 @@ test('create notifications, read it, and dismiss it', async () => {
 
 test('create notifications and dismiss it directly', async () => {
 	await runScenario(async scenario => {
-		const { alice, bob } = await setup(scenario);
+		const [alice, bob] = await setup(scenario);
 
 		// Wait for the created entry to be propagated to the other node.
 		await dhtSync([alice.player, bob.player], alice.player.cells[0].cell_id[0]);

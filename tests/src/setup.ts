@@ -3,113 +3,78 @@ import {
 	LinkedDevicesStore,
 } from '@darksoil-studio/linked-devices-zome';
 import { AppWebsocket } from '@holochain/client';
-import { Scenario } from '@holochain/tryorama';
+import { Scenario, dhtSync } from '@holochain/tryorama';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import { NotificationsClient } from '../../ui/src/notifications-client.js';
 import { NotificationsStore } from '../../ui/src/notifications-store.js';
-import { NotificationsConfig } from '../../ui/src/types.js';
 
-export async function setup(scenario: Scenario) {
-	scenario.dpkiNetworkSeed = undefined;
+const testHappUrl =
+	dirname(fileURLToPath(import.meta.url)) +
+	'/../../workdir/notifications_test-debug.happ';
 
-	const testHappUrl =
-		dirname(fileURLToPath(import.meta.url)) +
-		'/../../workdir/notifications_test-debug.happ';
-
-	// Add 2 players with the test hApp to the Scenario. The returned players
-	// can be destructured.
-	const [alice, bob, bob2] = await scenario.addPlayersWithApps([
-		{ appBundleSource: { path: testHappUrl } },
-		{ appBundleSource: { path: testHappUrl } },
-		{ appBundleSource: { path: testHappUrl } },
-	]);
-
-	// Shortcut peer discovery through gossip and register all agents in every
-	// conductor of the scenario.
-	await scenario.shareAllAgents();
-	await alice.conductor
-		.adminWs()
-		.authorizeSigningCredentials(alice.cells[0].cell_id);
-	patchCallZome(alice.appWs as AppWebsocket);
-
-	await bob.conductor
-		.adminWs()
-		.authorizeSigningCredentials(bob.cells[0].cell_id);
-	patchCallZome(bob.appWs as AppWebsocket);
-
-	await bob2.conductor
-		.adminWs()
-		.authorizeSigningCredentials(bob2.cells[0].cell_id);
-	patchCallZome(bob2.appWs as AppWebsocket);
-
-	// const config: NotificationsConfig = {
-	// 	types: {},
-	// };
-
-	const aliceLinkedDevicesStore = new LinkedDevicesStore(
-		new LinkedDevicesClient(alice.appWs as any, 'notifications_test'),
-	);
-
-	const aliceStore = new NotificationsStore(
-		new NotificationsClient(alice.appWs as any, 'notifications_test'),
-	);
-
-	const bobLinkedDevicesStore = new LinkedDevicesStore(
-		new LinkedDevicesClient(bob.appWs as any, 'notifications_test'),
-	);
-
-	const bobStore = new NotificationsStore(
-		new NotificationsClient(bob.appWs as any, 'notifications_test'),
-	);
-
-	const bob2LinkedDeviceStore = new LinkedDevicesStore(
-		new LinkedDevicesClient(bob2.appWs as any, 'notifications_test'),
-	);
-
-	const bob2Store = new NotificationsStore(
-		new NotificationsClient(bob2.appWs as any, 'notifications_test'),
+export async function setup(scenario: Scenario, numPlayers = 2) {
+	const players = await promiseAllSequential(
+		Array.from(new Array(numPlayers)).map(() => () => addPlayer(scenario)),
 	);
 
 	// Shortcut peer discovery through gossip and register all agents in every
 	// conductor of the scenario.
 	await scenario.shareAllAgents();
 
-	// Prevent race condition when two zome calls are made instantly at the beginning of the lifecycle that cause a ChainHeadMoved error because they trigger 2 parallel init workflows
-	await aliceStore.client.queryNotificationsWithStatus('Unread');
-	await bobStore.client.queryNotificationsWithStatus('Unread');
-	await bob2Store.client.queryNotificationsWithStatus('Unread');
+	await dhtSync(
+		players.map(p => p.player),
+		players[0].player.cells[0].cell_id[0],
+	);
 
+	console.log('Setup completed!');
+
+	return players;
+}
+
+async function addPlayer(scenario: Scenario) {
+	const player = await scenario.addPlayerWithApp({ path: testHappUrl });
+
+	patchCallZome(player.appWs as AppWebsocket);
+	await player.conductor
+		.adminWs()
+		.authorizeSigningCredentials(player.cells[0].cell_id);
+	const store = new NotificationsStore(
+		new NotificationsClient(player.appWs as any, 'notifications_test'),
+	);
+	const linkedDevicesStore = new LinkedDevicesStore(
+		new LinkedDevicesClient(player.appWs as any, 'notifications_test'),
+	);
 	return {
-		alice: {
-			player: alice,
-			store: aliceStore,
-			linkedDevicesStore: aliceLinkedDevicesStore,
-		},
-		bob: {
-			player: bob,
-			store: bobStore,
-			linkedDevicesStore: bobLinkedDevicesStore,
-		},
-		bob2: {
-			player: bob2,
-			store: bob2Store,
-			linkedDevicesStore: bob2LinkedDeviceStore,
-			startUp: async () => {
-				await bob2.conductor.startUp();
-				const port = await bob2.conductor.attachAppInterface();
-				const issued = await bob2.conductor
-					.adminWs()
-					.issueAppAuthenticationToken({
-						installed_app_id: bob2.appId,
-					});
-				const appWs = await bob2.conductor.connectAppWs(issued.token, port);
-				bob2Store.client = new NotificationsClient(appWs, 'notifications_test');
-			},
+		store,
+		linkedDevicesStore,
+		player,
+		startUp: async () => {
+			await player.conductor.startUp();
+			const port = await player.conductor.attachAppInterface();
+			const issued = await player.conductor
+				.adminWs()
+				.issueAppAuthenticationToken({
+					installed_app_id: player.appId,
+				});
+			const appWs = await player.conductor.connectAppWs(issued.token, port);
+			patchCallZome(appWs);
+			store.client.client = appWs;
 		},
 	};
 }
+
+async function promiseAllSequential<T>(
+	promises: Array<() => Promise<T>>,
+): Promise<Array<T>> {
+	const results: Array<T> = [];
+	for (const promise of promises) {
+		results.push(await promise());
+	}
+	return results;
+}
+
 export function patchCallZome(appWs: AppWebsocket) {
 	const callZome = appWs.callZome;
 
