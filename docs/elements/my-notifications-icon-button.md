@@ -68,7 +68,6 @@ onMounted(async () => {
   // Reference: https://vitepress.dev/guide/ssr-compat#importing-in-mounted-hook
   await import('@api-viewer/docs/lib/api-docs.js');
   await import('@api-viewer/demo/lib/api-demo.js');
-  await import('@darksoil-studio/profiles-zome/dist/elements/profiles-context.js');
   if (!customElements.get('notifications-context')) await import('../../ui/src/elements/notifications-context.ts');
   if (!customElements.get('my-notifications-icon-button')) await import('../../ui/src/elements/my-notifications-icon-button.ts');
 
