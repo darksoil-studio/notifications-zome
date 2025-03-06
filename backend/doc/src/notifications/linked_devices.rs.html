@@ -66,6 +66,21 @@
 <a href="#66" id="66">66</a>
 <a href="#67" id="67">67</a>
 <a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+<a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
+<a href="#73" id="73">73</a>
+<a href="#74" id="74">74</a>
+<a href="#75" id="75">75</a>
+<a href="#76" id="76">76</a>
+<a href="#77" id="77">77</a>
+<a href="#78" id="78">78</a>
+<a href="#79" id="79">79</a>
+<a href="#80" id="80">80</a>
+<a href="#81" id="81">81</a>
+<a href="#82" id="82">82</a>
+<a href="#83" id="83">83</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>hdk::prelude::<span class="kw-2">*</span>;
 <span class="kw">use </span>serde::de::DeserializeOwned;
 
@@ -73,27 +88,35 @@
 	zome_name: ZomeName,
 	fn_name: FunctionName,
 	payload: P,
-) -&gt; ExternResult&lt;R&gt;
+) -&gt; ExternResult&lt;<span class="prelude-ty">Option</span>&lt;R&gt;&gt;
 <span class="kw">where
 	</span>P: serde::Serialize + std::fmt::Debug,
 	R: DeserializeOwned + std::fmt::Debug,
 {
-	<span class="kw">let </span>response = call(
+	<span class="kw">let </span>call_result = call(
 		CallTargetCell::Local,
 		zome_name.clone(),
 		fn_name.clone(),
 		<span class="prelude-val">None</span>,
 		payload,
-	)<span class="question-mark">?</span>;
+	);
 
-	<span class="kw">match </span>response {
-		ZomeCallResponse::Ok(result) =&gt; {
-			<span class="kw">let </span>result: R = result.decode().map_err(|err| <span class="macro">wasm_error!</span>(err))<span class="question-mark">?</span>;
-			<span class="prelude-val">Ok</span>(result)
+	<span class="kw">match </span>call_result {
+		<span class="prelude-val">Ok</span>(response) =&gt; <span class="kw">match </span>response {
+			ZomeCallResponse::Ok(result) =&gt; {
+				<span class="kw">let </span>result: R = result.decode().map_err(|err| <span class="macro">wasm_error!</span>(err))<span class="question-mark">?</span>;
+				<span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(result))
+			}
+			<span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(<span class="macro">wasm_error!</span>(WasmErrorInner::Guest(<span class="macro">format!</span>(
+				<span class="string">"Failed to call {zome_name}/{fn_name}: {response:?}"
+			</span>)))),
+		},
+		<span class="prelude-val">Err</span>(err) =&gt; {
+			<span class="kw">if </span><span class="macro">format!</span>(<span class="string">"{err:?}"</span>).contains(<span class="string">"Zome not found"</span>) {
+				<span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>);
+			}
+			<span class="kw">return </span><span class="prelude-val">Err</span>(err);
 		}
-		<span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(<span class="macro">wasm_error!</span>(WasmErrorInner::Guest(<span class="macro">format!</span>(
-			<span class="string">"Failed to call {zome_name}/{fn_name}: {response:?}"
-		</span>)))),
 	}
 }
 
@@ -108,8 +131,11 @@
 	<span class="kw">let </span><span class="prelude-val">Some</span>(zome_name) = linked_devices_zome_name() <span class="kw">else </span>{
 		<span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="macro">vec!</span>[]);
 	};
-	<span class="kw">let </span>links: Vec&lt;Link&gt; =
-		call_local_zome(zome_name, <span class="string">"get_linked_devices_for_agent"</span>.into(), agent)<span class="question-mark">?</span>;
+	<span class="kw">let </span><span class="prelude-val">Some</span>(links): <span class="prelude-ty">Option</span>&lt;Vec&lt;Link&gt;&gt; =
+		call_local_zome(zome_name, <span class="string">"get_linked_devices_for_agent"</span>.into(), agent)<span class="question-mark">?
+	</span><span class="kw">else </span>{
+		<span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="macro">vec!</span>[]);
+	};
 	<span class="kw">let </span>agents: Vec&lt;AgentPubKey&gt; = links
 		.into_iter()
 		.filter_map(|link| link.target.into_agent_pub_key())
@@ -127,7 +153,11 @@
 	<span class="kw">let </span><span class="prelude-val">Some</span>(zome_name) = linked_devices_zome_name() <span class="kw">else </span>{
 		<span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="macro">vec!</span>[]);
 	};
-	<span class="kw">let </span>links: Vec&lt;Link&gt; = call_local_zome(zome_name, <span class="string">"query_my_linked_devices"</span>.into(), ())<span class="question-mark">?</span>;
+	<span class="kw">let </span><span class="prelude-val">Some</span>(links): <span class="prelude-ty">Option</span>&lt;Vec&lt;Link&gt;&gt; =
+		call_local_zome(zome_name, <span class="string">"query_my_linked_devices"</span>.into(), ())<span class="question-mark">?
+	</span><span class="kw">else </span>{
+		<span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="macro">vec!</span>[]);
+	};
 	<span class="kw">let </span>agents: Vec&lt;AgentPubKey&gt; = links
 		.into_iter()
 		.filter_map(|link| link.target.into_agent_pub_key())
