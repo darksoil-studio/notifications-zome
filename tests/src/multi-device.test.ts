@@ -8,7 +8,7 @@ import { setup } from './setup.js';
 
 test('notifications and their status get synchronized across devices for the same profile', async () => {
 	await runScenario(async scenario => {
-		const { alice, bob, bob2 } = await setup(scenario);
+		const [alice, bob, bob2] = await setup(scenario, 3);
 
 		await linkDevices(bob.linkedDevicesStore, bob2.linkedDevicesStore);
 
@@ -72,7 +72,7 @@ test('notifications and their status get synchronized across devices for the sam
 
 test('notifications and their status get synchronized across devices for the same profile even when not online at the same time', async () => {
 	await runScenario(async scenario => {
-		const { alice, bob, bob2 } = await setup(scenario);
+		const [alice, bob, bob2] = await setup(scenario, 3);
 
 		await linkDevices(bob.linkedDevicesStore, bob2.linkedDevicesStore);
 
