@@ -52,12 +52,12 @@ Here is an interactive demo of the element:
 
 <script setup>
 import { onMounted } from "vue";
-import { wrapPathInSvg } from '@tnesh-stack/elements/dist/icon.js'
+import { wrapPathInSvg } from '@darksoil-studio/holochain-elements/dist/icon.js'
 import { mdiBell } from '@mdi/js';
 import { decode } from '@msgpack/msgpack';
 import { decodeHashFromBase64 } from '@holochain/client';
 import { render, html } from "lit";
-import { Signal, toPromise } from '@tnesh-stack/signals';
+import { Signal, toPromise } from '@darksoil-studio/holochain-signals';
 
 import { NotificationsZomeMock } from "../../ui/src/mocks.ts";
 import { NotificationsStore } from "../../ui/src/notifications-store.ts";

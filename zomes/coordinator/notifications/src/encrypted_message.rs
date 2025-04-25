@@ -17,7 +17,7 @@ pub fn create_encrypted_message(
 ) -> ExternResult<()> {
 	let message_bytes = SerializedBytes::try_from(message).map_err(|err| wasm_error!(err))?;
 	let encrypted_data = ed_25519_x_salsa20_poly1305_encrypt(
-		agent_info()?.agent_latest_pubkey,
+		agent_info()?.agent_initial_pubkey,
 		recipient.clone(),
 		message_bytes.bytes().clone().into(),
 	)?;
@@ -36,7 +36,7 @@ pub fn create_encrypted_message(
 }
 
 pub fn commit_my_pending_encrypted_messages() -> ExternResult<()> {
-	let my_pub_key = agent_info()?.agent_latest_pubkey;
+	let my_pub_key = agent_info()?.agent_initial_pubkey;
 	let links = get_links(
 		GetLinksInputBuilder::try_new(my_pub_key.clone(), LinkTypes::AgentEncryptedMessage)?
 			.build(),

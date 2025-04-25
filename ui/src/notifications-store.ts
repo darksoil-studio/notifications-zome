@@ -1,11 +1,11 @@
-import { EntryHash, EntryHashB64 } from '@holochain/client';
 import {
 	AsyncSignal,
 	AsyncState,
 	Signal,
 	fromPromise,
-} from '@tnesh-stack/signals';
-import { HoloHashMap } from '@tnesh-stack/utils';
+} from '@darksoil-studio/holochain-signals';
+import { HoloHashMap } from '@darksoil-studio/holochain-utils';
+import { EntryHash, EntryHashB64 } from '@holochain/client';
 
 import { NotificationsClient } from './notifications-client.js';
 import {

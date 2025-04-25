@@ -23,7 +23,7 @@ fn scheduled_synchronize_with_linked_devices(_: Option<Schedule>) -> Option<Sche
 }
 
 pub fn synchronize_with_linked_devices() -> ExternResult<()> {
-	let my_pub_key = agent_info()?.agent_latest_pubkey;
+	let my_pub_key = agent_info()?.agent_initial_pubkey;
 
 	let agents = query_my_linked_devices()?;
 	let other_agents = agents.into_iter().filter(|a| a.ne(&my_pub_key));
