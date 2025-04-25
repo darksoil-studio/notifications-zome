@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["GetNotificationContentsInput","NotificationContents","NotificationType"],"trait":["NotificationsZomeTrait"]};
+window.SIDEBAR_ITEMS = {"constant":["NOTIFICATIONS_ZOME_TRAIT_HASH"],"struct":["GetNotificationContentsInput","NotificationContents","NotificationType"],"trait":["NotificationsZomeTrait"]};
