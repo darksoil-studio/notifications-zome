@@ -1,3 +1,4 @@
+import { EntryRecord, ZomeClient } from '@darksoil-studio/holochain-utils';
 import {
 	ActionHash,
 	AgentPubKey,
@@ -13,7 +14,6 @@ import {
 	encodeHashToBase64,
 } from '@holochain/client';
 import { encode } from '@msgpack/msgpack';
-import { EntryRecord, ZomeClient } from '@tnesh-stack/utils';
 
 import {
 	Notification,

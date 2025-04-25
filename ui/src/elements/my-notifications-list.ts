@@ -1,4 +1,15 @@
 import {
+	sharedStyles,
+	wrapPathInSvg,
+} from '@darksoil-studio/holochain-elements';
+import {
+	AsyncResult,
+	SignalWatcher,
+	joinAsync,
+	joinAsyncMap,
+} from '@darksoil-studio/holochain-signals';
+import { EntryRecord, mapValues } from '@darksoil-studio/holochain-utils';
+import {
 	ActionHash,
 	Delete,
 	EntryHash,
@@ -19,14 +30,6 @@ import '@shoelace-style/shoelace/dist/components/icon-button/icon-button.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/relative-time/relative-time.js';
 import '@shoelace-style/shoelace/dist/components/skeleton/skeleton.js';
-import { sharedStyles, wrapPathInSvg } from '@tnesh-stack/elements';
-import {
-	AsyncResult,
-	SignalWatcher,
-	joinAsync,
-	joinAsyncMap,
-} from '@tnesh-stack/signals';
-import { EntryRecord, mapValues } from '@tnesh-stack/utils';
 import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';

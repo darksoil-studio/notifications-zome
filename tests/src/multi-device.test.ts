@@ -1,7 +1,7 @@
 import { LinkedDevicesStore } from '@darksoil-studio/linked-devices-zome';
 import { decodeHashFromBase64 } from '@holochain/client';
 import { dhtSync, pause, runScenario } from '@holochain/tryorama';
-import { toPromise } from '@tnesh-stack/signals';
+import { toPromise } from '@darksoil-studio/holochain-signals';
 import { assert, test } from 'vitest';
 
 import { setup } from './setup.js';

@@ -1,5 +1,8 @@
+import {
+	ActionCommittedSignal,
+	EntryRecord,
+} from '@darksoil-studio/holochain-utils';
 import { ActionHash, AgentPubKey, EntryHashB64 } from '@holochain/client';
-import { ActionCommittedSignal, EntryRecord } from '@tnesh-stack/utils';
 
 export type NotificationsSignal = ActionCommittedSignal<EntryTypes, LinkTypes>;
 

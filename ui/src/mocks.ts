@@ -1,3 +1,10 @@
+import { wrapPathInSvg } from '@darksoil-studio/holochain-elements/dist/icon.js';
+import {
+	HashType,
+	HoloHashMap,
+	ZomeMock,
+	hash,
+} from '@darksoil-studio/holochain-utils';
 import {
 	AgentPubKey,
 	AppClient,
@@ -6,8 +13,6 @@ import {
 	encodeHashToBase64,
 } from '@holochain/client';
 import { mdiEarth } from '@mdi/js';
-import { wrapPathInSvg } from '@tnesh-stack/elements/dist/icon.js';
-import { HashType, HoloHashMap, ZomeMock, hash } from '@tnesh-stack/utils';
 
 import {
 	Notification,
