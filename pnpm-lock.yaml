@@ -151,10 +151,10 @@ importers:
         specifier: ^0.10.3
         version: 0.10.4
       '@darksoil-studio/linked-devices-zome':
-        specifier: 0.500.0-rev.5a9b78aed28fcc3a2cfcb62441440301ab9b80fb
+        specifier: ^0.500.0-rev
         version: 0.500.0-rev.5a9b78aed28fcc3a2cfcb62441440301ab9b80fb(@types/react@18.3.10)
       '@darksoil-studio/profiles-zome':
-        specifier: 0.500.0-rev.550b9e14f1cf232bea72d1972fe1519934e2136e
+        specifier: ^0.500.0-rev
         version: 0.500.0-rev.550b9e14f1cf232bea72d1972fe1519934e2136e(@types/react@18.3.10)
       '@lit/localize-tools':
         specifier: ^0.6.3
