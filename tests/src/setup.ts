@@ -35,8 +35,10 @@ export async function setup(scenario: Scenario, numPlayers = 2) {
 
 async function addPlayer(scenario: Scenario) {
 	const player = await scenario.addPlayerWithApp({
-		type: 'path',
-		value: testHappUrl,
+		appBundleSource: {
+			type: 'path',
+			value: testHappUrl,
+		},
 	});
 
 	patchCallZome(player.appWs as AppWebsocket);
