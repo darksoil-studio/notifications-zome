@@ -1,10 +1,11 @@
+import { toPromise } from '@darksoil-studio/holochain-signals';
 import { LinkedDevicesStore } from '@darksoil-studio/linked-devices-zome';
 import { decodeHashFromBase64 } from '@holochain/client';
-import { dhtSync, pause, runScenario } from '@holochain/tryorama';
-import { toPromise } from '@darksoil-studio/holochain-signals';
+import { pause, runScenario } from '@holochain/tryorama';
 import { assert, test } from 'vitest';
 
 import { setup } from './setup.js';
+import { dhtSync } from './sync.js';
 
 test('notifications and their status get synchronized across devices for the same profile', async () => {
 	await runScenario(async scenario => {

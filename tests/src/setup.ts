@@ -1,3 +1,4 @@
+import { AsyncSignal, Signal } from '@darksoil-studio/holochain-signals';
 import {
 	LinkedDevicesClient,
 	LinkedDevicesStore,
@@ -95,5 +96,69 @@ export function patchCallZome(appWs: AppWebsocket) {
 				throw e;
 			}
 		}
+	};
+}
+
+export async function eventually<T>(
+	signal: AsyncSignal<T>,
+	check: (v: T) => void,
+	timeoutMs = 240_000,
+) {
+	const timeoutError = new Error('Timeout');
+	return new Promise((resolve, reject) => {
+		let error;
+		setTimeout(() => {
+			reject(error ? error : timeoutError);
+		}, timeoutMs);
+		effect(() => {
+			const value = signal.get();
+			if (value.status === 'pending') return;
+			if (value.status === 'error') {
+				error = new Error(value.error.toString());
+				return;
+			}
+
+			try {
+				check(value.value);
+				resolve(undefined);
+			} catch (e) {}
+		});
+	});
+}
+
+let needsEnqueue = true;
+
+const w = new Signal.subtle.Watcher(() => {
+	if (needsEnqueue) {
+		needsEnqueue = false;
+		queueMicrotask(processPending);
+	}
+});
+
+function processPending() {
+	needsEnqueue = true;
+
+	for (const s of w.getPending()) {
+		s.get();
+	}
+
+	w.watch();
+}
+
+export function effect(callback) {
+	let cleanup;
+
+	const computed = new Signal.Computed(() => {
+		typeof cleanup === 'function' && cleanup();
+		cleanup = callback();
+	});
+
+	w.watch(computed);
+	computed.get();
+
+	return () => {
+		w.unwatch(computed);
+		typeof cleanup === 'function' && cleanup();
+		cleanup = undefined;
 	};
 }
