@@ -9,7 +9,8 @@
     holochain-nix-builders.url =
       "github:darksoil-studio/holochain-nix-builders/main-0.5";
     playground.url = "github:darksoil-studio/holochain-playground/main-0.5";
-    tauri-plugin-holochain.url = "github:darksoil-studio/p2p-shipyard/main-0.5";
+    tauri-plugin-holochain.url =
+      "github:darksoil-studio/tauri-plugin-holochain/main-0.5";
 
     linked-devices-zome.follows = "profiles-zome/linked-devices-zome";
     profiles-zome.url = "github:darksoil-studio/profiles-zome/main-0.5";
