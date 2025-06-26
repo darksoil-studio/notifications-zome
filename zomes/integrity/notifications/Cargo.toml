@@ -10,6 +10,7 @@ name = "notifications_integrity"
 [dependencies]
 hdi = { workspace = true }
 
+holochain_serialized_bytes = { workspace = true }
 serde = { workspace = true }
 notifications_types = { path = "../../../crates/notifications_types" }
 linked_devices_types = { git = "https://github.com/darksoil-studio/linked-devices-zome", branch = "main-0.5" }
