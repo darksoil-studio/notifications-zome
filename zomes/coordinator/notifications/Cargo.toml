@@ -10,6 +10,7 @@ name = "notifications"
 [dependencies]
 hdk = { workspace = true }
 
+holochain_serialized_bytes = { workspace = true }
 serde = { workspace = true }
 
 notifications_types = { path = "../../../crates/notifications_types" }
