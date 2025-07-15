@@ -7,7 +7,7 @@
   "dependencies": {
     "@darksoil-studio/holochain-signals": "^0.500.0",
     "@darksoil-studio/holochain-utils": "^0.500.0",
-    "@darksoil-studio/linked-devices-zome": "0.500.0-rev.f3e3b510e24fc1de73c338e686f92e9bf2bfba78",
+    "@darksoil-studio/linked-devices-zome": "0.500.0-rev.2c33f0c1d3b3eef67d7f96e6601091721d035dee",
     "@holochain/client": "^0.19.0",
     "@holochain/tryorama": "^0.18.3",
     "@msgpack/msgpack": "^2.7.0",
