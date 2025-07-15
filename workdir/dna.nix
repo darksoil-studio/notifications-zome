@@ -3,7 +3,7 @@
 {
   perSystem = { inputs', self', lib, system, ... }: {
     packages.notifications_test_dna =
-      inputs.holochain-nix-builders.outputs.builders.${system}.dna {
+      inputs.holochain-utils.outputs.builders.${system}.dna {
         dnaManifest = ./dna.yaml;
         zomes = {
           # Include here the zome packages for this DNA, e.g.:
